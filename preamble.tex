@@ -1,0 +1,235 @@
+\pdfminorversion=6
+\documentclass[xcolor=table]{beamer}
+%\newcommand{\pagelogo}{ru/logo.png}
+%\newcommand{\bannerlogo}{ru/logo.png}
+
+\usepackage{svg}
+\usepackage{lmodern,amsmath,amssymb}
+\usepackage{adjustbox}
+\usepackage{mathtools}
+\usepackage{algpseudocode}
+\usepackage[customcolors]{hf-tikz}
+\usetheme{Warsaw}
+\setbeamertemplate{enumerate items}[default]
+\setbeamerfont{enumerate item}{series=\bfseries\itshape}
+\usecolortheme{beaver}
+\usefonttheme[onlymath]{serif}
+\usepackage[T1]{fontenc} %  fontenc is used to fix the bug for greek letter \Delta
+\usepackage{arydshln}
+\usepackage{cancel}
+\usepackage{blkarray, bigstrut}
+\usepackage{accents}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{graphicx}
+\setlength\columnsep{15pt}
+\usepackage{makecell}
+\renewcommand{\arraystretch}{1.2}
+
+
+%% customization of beamer environments
+%% copyright notice
+\setbeamertemplate{footline}{%
+	\leavevmode%
+	\hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.0ex,dp=2.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\copyright Dov Kruger 2024\vspace{-1ex}
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.0ex,dp=2.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+			\usebeamerfont{title in head/foot}{\insertshorttitle}\vspace{-1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+%% logo banner
+\setbeamertemplate{background canvas}{%
+	\raisebox{-\paperheight+10pt}[0pt][0pt]{%
+		\makebox[\paperwidth][l]{%
+			\hspace{1cm}\includegraphics[width=1.5cm]{ru/logo.png}%
+		}%
+	}%
+}
+%% create an environment called "withoutheadline" to save space on content slides
+\makeatletter
+\newenvironment{withoutheadline}{
+	\setbeamertemplate{headline}[default]
+	\def\beamer@entrycode{\vspace*{-\headheight}}
+	\setbeamertemplate{background canvas}{%
+		\raisebox{-\paperheight+\headheight+10pt}[0pt][0pt]{%
+			\makebox[\paperwidth][l]{%
+				\hspace{.5cm}\includegraphics[width=1cm]{ru/logo.png}%
+			}%
+		}%
+	}
+}{}
+\makeatother
+%% create an environment called "withoutheadlinelogoright" in which the logo is located on the right
+\makeatletter
+\newenvironment{withoutheadlinelogoright}{
+	\setbeamertemplate{headline}[default]
+	\def\beamer@entrycode{\vspace*{-\headheight}}
+	\setbeamertemplate{background canvas}{%
+		\raisebox{-\paperheight+\headheight+17pt}[0pt][0pt]{%
+			\makebox[\paperwidth][r]{%
+				\includegraphics[width=1cm]{ru/logo.png}\hspace{.5cm}%
+			}%
+		}%
+	}
+}{}
+\makeatother
+%% set up beginning pages for each section and subsection
+\newif\ifSectionTitlePage
+\newcommand*\SectionTitlePagedefault{\SectionTitlePagefalse}
+
+\newcommand\AllSectionsWithTitlePage{%
+  \SectionTitlePagetrue
+  \renewcommand*\SectionTitlePagedefault{\SectionTitlePagetrue}%
+}
+\newcommand\AllSectionsWithoutTitlePage{%
+  \SectionTitlePagefalse
+  \renewcommand*\SectionTitlePagedefault{\SectionTitlePagefalse}%
+}
+\newcommand\NextSectionWithTitlePage{\SectionTitlePagetrue}
+\newcommand\NextSectionWithoutTitlePage{\SectionTitlePagefalse}
+
+\AtBeginSection[]{%
+  \ifSectionTitlePage
+    \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsection\par%
+    \end{beamercolorbox}
+    \vfill
+    \end{frame}
+  \fi
+  \SectionTitlePagedefault
+}
+% subsection page
+\AtBeginSubsection[]{
+	\begin{frame}
+		\vfill
+		\centering
+		\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+			\usebeamerfont{subtitle}\insertsubsection\par%
+		\end{beamercolorbox}
+		\vfill
+	\end{frame}
+}
+\AllSectionsWithTitlePage
+% pagenumber
+\addtobeamertemplate{navigation symbols}{}{%
+	\usebeamerfont{footline}%
+	\usebeamercolor[fg]{footline}%
+	\hspace{1em}%
+	\insertframenumber/\inserttotalframenumber
+}
+%% enable options for switching theme colors
+\definecolor{CraneYellow}{RGB}{252,187,6}
+\definecolor{CraneBlack}{RGB}{4,6,76}
+\definecolor{CustomBlue}{RGB}{51,51,178}
+\definecolor{CustomGreen}{RGB}{50, 205, 50}
+
+\newcommand{\setframecolorExtra}{	
+	\setbeamercolor{frametitle}{fg=CraneBlack,bg=CraneYellow}}
+\newcommand{\setframecolorDeep}{	
+	\setbeamercolor{frametitle}{fg=CraneBlack,bg=CustomGreen!50}}
+\newcommand{\setframecolorAct}{
+	\setbeamercolor{frametitle}{fg=CraneBlack,bg=CustomBlue!50}}
+
+
+
+\usepackage{soul} %for \ul underline command which wraps text while underlining 
+\newcommand{\mystep}[1]{{\vspace{2mm}\noindent\textbf{#1}}}
+\newcommand{\myhigh}[1]{\textit{\ul{#1}}}
+% Robotics Math
+\newcommand{\realfield}{\hbox{I \kern -.4em R}}
+\newcommand {\mb}[1]{\mathbf{#1}} % all replaced
+\newcommand {\bs}[1]{\boldsymbol{#1}}
+\newcommand{\uvec}[1]{\hat{\mathbf{#1}}}
+\newcommand{\uvecf}[3]{\,^{#1}\hat{\mathbf{#2}}_{#3}}
+\newcommand{\T}{^{\top}}  %shortcut for transpose
+\newcommand*{\diameter}{\bigcirc\kern-0.95em\diagup}
+\newcommand{\rmd}{\textrm{d}}  %shortcut for derivative
+% Control Math
+\newcommand{\ddtn}[2]{\dfrac{\rmd^{#2} #1}{\rmd t^{#2}}}
+\newcommand{\ddt}[1]{\dfrac{\rmd #1}{\rmd t}}
+\newcommand{\lap}[1]{\mathcal{L}\left[#1\right]}
+\newcommand{\lapinv}[1]{\mathcal{L}^{-1}\left[#1\right]}
+%% Remarks and Conclusions index setup
+\newcounter{remark}[section]
+\newcounter{remarkSavedIndex}[section]
+\newcommand{\remarkIndex}{\refstepcounter{remark}\textit{Remark \theremark}}
+\newcommand{\remarkSaveIndex}{\setcounter{remarkSavedIndex}{\value{remark}}}
+\newcommand{\remarkLoadIndex}{\setcounter{remark}{\value{remarkSavedIndex}}}
+\newcounter{conclusion}[section]
+\newcounter{conclusionSavedIndex}[section]
+\renewcommand{\theconclusion}{\Roman{conclusion}}
+\newcommand{\conclusionIndex}{\refstepcounter{conclusion}\textbf{Conclusion (\theconclusion)}}
+\newcommand{\conclusionSaveIndex}{\setcounter{conclusionSavedIndex}{\value{conclusion}}}
+\newcommand{\conclusionLoadIndex}{\setcounter{conclusion}{\value{conclusionSavedIndex}}}
+
+%% Custom slide options
+%% This code contains different options:
+% 1. Extended set of slides (including deep dives and extra challenges), named Lect_X_extended
+% 2. Lecture presenting slides (trimming off extra challenges), named Lect_X
+% 3. Lecture presenting slides with bullet advancing mode, named Lect_X_pres
+
+\ifdefined\slidePresentingMode
+\else
+	\newcommand\slidePresentingMode{1}
+\fi
+
+\newif\ifSlideExtra
+\newif\ifSlideDeepDive
+\newif\ifSlideBulletAdvance
+
+\ifnum \slidePresentingMode=1
+	\SlideExtratrue
+	\SlideDeepDivetrue
+	\SlideBulletAdvancefalse	
+\fi
+
+\ifnum \slidePresentingMode=2
+	\SlideExtrafalse
+	\SlideDeepDivefalse
+	\SlideBulletAdvancefalse
+\fi
+
+\ifnum \slidePresentingMode=3
+	\SlideExtrafalse
+	\SlideDeepDivefalse
+	\SlideBulletAdvancetrue
+\fi
+
+%% activate the following line to generate presenting slides as oppose to notes slide
+\ifSlideBulletAdvance
+	\beamerdefaultoverlayspecification{<+->}
+\fi
+
+
+
+%% custom slide indices
+% define an index for active learning act
+\newcounter{activeLearn}
+\newcommand{\activeLearnIndex}{\refstepcounter{activeLearn}In-class Exercise \#\theactiveLearn }
+% define an index for deep dives
+\newcounter{deepDive}
+\newcommand{\deepDiveIndex}{\refstepcounter{deepDive}Deep Dive \#\thedeepDive }
+% define an index for extra challenges
+\newcounter{extraChallenge}
+\newcommand{\extraChIndex}{\refstepcounter{extraChallenge}Extra Challenge \#\theextraChallenge }
+
+%% table preamble
+%\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+%% Dov's requests for common spacing commands on slides
+\newcommand{\smallspace}{\vspace{2mm}}
+\newcommand{\bigspace}{\vspace{5mm}}
+
+\institute{Department of Electrical and Computer Engineering\\Rutgers University}
+% logo of my university
+\titlegraphic{\centering\includegraphics[width=1cm]{ru/logo.png}
+}
+\author{Dov Kruger}
+\date{\today}
