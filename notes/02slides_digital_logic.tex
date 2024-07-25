@@ -55,7 +55,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Representing 3 bit Integers}
-%\begin{tabular}{p{2.5cm}|p{2.5cm}|p{2.5cm}}    \hline
+\begin{tabular}{p{2.5cm}|p{2.5cm}|p{2.5cm}}    %\hline
 %    bits & unsigned & signed \\
 %    000  &        0 &      0 \\
 %    001  &        1 &      1 \\
@@ -65,13 +65,12 @@
 %    101  &        5 &     -3 \\
 %    110  &        6 &     -2 \\
 %    111  &        7 &     -1 \\ \hline
-%\end{tabular}
+\end{tabular}
 \end{frame}
 
 \begin{frame}[fragile]{Base 16: Hexadecimal}
-\begin{tabular}{c|c|c|c|c}
-    \hline
-    Hex & bits & --- & Hex & bits  \\ \hline
+\begin{tabular}{c|c|c|c|c} \toprule
+    Hex & bits & --- & Hex & bits  \\ \midrule 
     0 & 0000 & & 8 & 1000 \\
     1 & 0001 & & 9 & 1001 \\
     2 & 0010 & & A & 1010 \\
@@ -79,7 +78,7 @@
     4 & 0100 & & C & 1100 \\
     5 & 0101 & & D & 1101 \\
     6 & 0110 & & E & 1110 \\
-    7 & 0111 & & F & 1111 \\    \hline
+    7 & 0111 & & F & 1111 \\    \bottomrule
 \end{tabular}
 \end{frame}
 
@@ -117,12 +116,12 @@
     \item Logic gates on computers are built out of transistors
     \item Circuits are built to yield desired operations (add, subtract, multiply, divide)
 \end{itemize}
-\begin{tabular}{c|c|c|c|c|c}    %\hline
-    A & B & NOT A & A AND B & A OR B & A XOR B \\ %\hline
-    0 & 0 &     1 &       0 &      0 &       0 \\ %\hline
-    0 & 1 &     1 &       0 &      1 &       1 \\ %\hline
-    1 & 0 &     0 &       0 &      1 &       1 \\ %\hline
-    1 & 1 &     0 &       1 &      1 &       0 \\ \hline
+\begin{tabular}{c|c|c|c|c|c}    \toprule
+    A & B & NOT A & A AND B & A OR B & A XOR B \\ 
+    0 & 0 &     1 &       0 &      0 &       0 \\ 
+    0 & 1 &     1 &       0 &      1 &       1 \\ 
+    1 & 0 &     0 &       0 &      1 &       1 \\ 
+    1 & 1 &     0 &       1 &      1 &       0 \\ \bottomrule
 \end{tabular}
 \end{frame}
 
