@@ -29,7 +29,111 @@
     \item The only secret is the key itself
 \end{itemize}
 \end{frame}
-    
+
+\begin{frame}{Vigenère Cipher Example}
+\begin{itemize}
+    \item Keyword: KEY
+    \item Plaintext: ATTACK AT DAWN
+    \item Ciphertext: KVVCCS DC HCPZ
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Build Your Own Vigenère Cipher}
+\begin{itemize}
+    \item Choose a keyword
+    \item Encrypt the message
+    \item Example: "HELLO WORLD" with "KEY"
+    \item Ciphertext: \_\_\_\_\_\ \_\_\_\_\_\_
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Playfair Cipher}
+\begin{itemize}
+    \item Digraph substitution cipher
+    \item Uses a 5x5 matrix from keyword
+    \item Encrypts pairs of letters
+    \item Example:
+    \begin{itemize}
+        \item Keyword: MONARCHY
+        \item Plaintext: HELLO
+        \item Ciphertext: HF LX PR
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Playfair Cipher Matrix}
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    M & O & N & A & R \\
+    \hline
+    C & H & Y & B & D \\
+    \hline
+    E & F & G & I/J & K \\
+    \hline
+    L & P & Q & R & S \\
+    \hline
+    T & U & V & W & X \\
+    \hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Enigma Machine}
+\begin{itemize}
+    \item Used in WWII by Nazi Germany
+    \item Electromechanical rotor machine
+    \item Polyalphabetic substitution cipher
+    \item Complex key settings
+    \item Daily key sheets
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Enigma Machine Example}
+\begin{itemize}
+    \item Rotors: Three, adjustable
+    \item Plugboard: Swappable letter pairs
+    \item Example plaintext: ATTACK
+    \item Ciphertext: BJRZGY
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Stream Ciphers}
+\begin{itemize}
+    \item Read in a stream of data
+    \item Write out a stream of data
+    \item Use a key to generate secret key
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Computer Data and Basic Information Theory}
+\end{frame}
+
+\begin{frame}{Bits and Bytes}
+\begin{itemize}
+    \item Bit: Smallest unit of data (0 or 1)
+    \item Byte: Group of 8 bits
+    \item All data on a computer is bits
+    \item Meaning is context-dependent
+\end{itemize}
+01000001: 65, 'A' \\
+We will focus on raw bits to learn the building blocks of modern cryptography
+\end{frame}
+
+\begin{frame}{Bitwise Operations}
+\begin{itemize}
+    \item Computers are built out of digital logic gates
+    \item AND
+    \item OR
+    \item XOR
+    \item NOT
+\end{itemize}
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    A & B & A AND B & A OR B & A XOR B \\
+    0 & 0 &       0 &      0 &       0 \\
+    0 & 1 &       0 &      1 &       1 \\
+    1 & 0 &       0 &      1 &       1 \\
+    1 & 1 &       1 &      1 &       0 \\ \hline
+\end{frame}
 
 \begin{frame}{Modern Cryptography}
 \begin{itemize}
