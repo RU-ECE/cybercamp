@@ -1,0 +1,48 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Common settings -->
+  <g fill="#f0f0f0" stroke="#000" stroke-width="2" font-family="Arial" font-size="12">
+
+    <!-- Key Generation -->
+    <circle cx="100" cy="100" r="30"/>
+    <text x="70" y="105">Key</text>
+    <text x="80" y="125">Generation</text>
+    <line x1="100" y1="130" x2="100" y2="150"/>
+    <text x="80" y="165">Generate</text>
+    <text x="85" y="185">Public and Private Keys</text>
+
+    <!-- Encryption -->
+    <circle cx="300" cy="100" r="25"/>
+    <text x="270" y="105">Encryption</text>
+    <line x1="270" y1="130" x2="270" y2="150"/>
+    <text x="255" y="165">Encrypt</text>
+    <text x="255" y="185">Data</text>
+
+    <!-- Decryption -->
+    <circle cx="500" cy="100" r="30"/>
+    <text x="470" y="105">Decryption</text>
+    <line x1="500" y1="130" x2="500" y2="150"/>
+    <text x="480" y="165">Decrypt</text>
+    <text x="475" y="185">Data</text>
+
+    <!-- Digital Signature -->
+    <rect x="80" y="250" width="100" height="50"/>
+    <text x="100" y="275">Digital</text>
+    <text x="100" y="295">Signature</text>
+    <line x1="100" y1="310" x2="100" y2="330"/>
+    <text x="80" y="355">Create and</text>
+    <text x="80" y="375">Verify Signatures</text>
+
+    <!-- Connection Lines -->
+    <line x1="130" y1="100" x2="275" y2="100"/>
+    <line x1="300" y1="125" x2="470" y2="100"/>
+    <line x1="500" y1="130" x2="375" y2="250"/>
+    <line x1="125" y1="150" x2="275" y2="250"/>
+    <line x1="200" y1="275" x2="80" y2="275"/>
+    <line x1="300" y1="100" x2="300" y2="75"/>
+    <line x1="100" y1="330" x2="100" y2="360"/>
+    <line x1="475" y1="275" x2="475" y2="230"/>
+
+  </g>
+
+</svg>

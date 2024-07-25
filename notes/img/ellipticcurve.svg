@@ -1,0 +1,23 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Elliptic Curve -->
+  <path d="M50 200 Q 200 100 350 200 Q 200 300 50 200" fill="none" stroke="#000" stroke-width="2"/>
+
+  <!-- Point P on the curve -->
+  <circle cx="200" cy="100" r="4" fill="red"/>
+  <text x="200" y="90" font-family="Arial" font-size="12" fill="black">P</text>
+
+  <!-- Point Q on the curve -->
+  <circle cx="300" cy="200" r="4" fill="red"/>
+  <text x="300" y="190" font-family="Arial" font-size="12" fill="black">Q</text>
+
+  <!-- Resultant Point R on the curve -->
+  <circle cx="200" cy="300" r="4" fill="red"/>
+  <text x="200" y="290" font-family="Arial" font-size="12" fill="black">R</text>
+
+  <!-- Connection Lines -->
+  <line x1="200" y1="100" x2="300" y2="200" stroke="#000" stroke-width="1"/>
+  <line x1="300" y1="200" x2="200" y2="300" stroke="#000" stroke-width="1"/>
+  <line x1="200" y1="300" x2="200" y2="100" stroke="#000" stroke-width="1"/>
+
+</svg>

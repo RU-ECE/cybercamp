@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1400" id="svg2" version="1.1">
+  <style>
+    .w {
+      fill:#ffffff;
+      fill-opacity:1;
+      stroke:#000000;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      stroke-miterlimit:4;
+      stroke-dasharray:none;
+    }
+    .rect_shaded {
+       fill:#ccf;
+       stroke:none;
+    }
+    .grayedge {
+      fill:none;
+      stroke:#cccccc;
+      stroke-width:4;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      stroke-miterlimit:4;
+      stroke-opacity:1;
+      stroke-dasharray:16,16;
+      stroke-dashoffset:0"
+     }
+     text {
+      font-family:Sans;
+      fill:#000;
+      fill-opacity:1;
+      font-style:normal;
+      font-weight:normal;
+      line-height:125%;
+      letter-spacing:0px;
+      word-spacing:0px;
+      stroke:none;
+     }
+
+     .L40 {
+      font-size:40px;
+     }
+
+     .C40 {
+      font-size:40px;
+      text-align:center;
+      text-anchor:middle;
+     }
+     .C32 {
+       font-size:32px;
+       text-align:center;
+       text-anchor:middle;
+     }
+     .arr {
+      stroke:#000;
+      stroke-width:4;
+      marker-end:url(#Arrowpt)
+     }
+
+  </style>
+  <defs>
+    <marker orient="auto" refY="0" refX="0" id="Arrowpt" style="overflow:visible">
+      <path d="M 0,0 5,-5 -12.5,0 5,5 0,0 z" style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" transform="matrix(-0.8,0,0,-0.8,-10,0)"/>
+    </marker>
+    <g id="hashbox">
+      <rect x="0"  y="0"   width="407" height="220"  class="w"/>
+      <rect x="22" y="123" width="358" height="76"   class="rect_shaded"/>
+    </g>
+    <g id="block">
+      <rect x="0"  y="0"  width="407" height="108"  class="w"/>
+      <rect x="22" y="15" width="358" height="76"   class="rect_shaded"/>
+    </g>
+  </defs>
+  <g transform="translate(0,347.63785)">
+    <rect class="grayedge" width="2127" height="214" x="36" y="741"/>
+    <text class="L40" x="1961" y="832"><tspan x="1961" y="832">Data</tspan><tspan x="1961" y="882" >Blocks</tspan></text>
+    <g transform="translate(1934.1694,-90.49974)">
+      <g transform="translate(-1743.0413,-71.25646)">
+        <g>
+          <rect y="259.20322" x="1063.8065" height="219.51587" width="407" class="w"/>
+          <rect y="382.17807" x="1085.9418" height="76" width="358" class="rect_shaded"/>
+        </g>
+        <text class="C40" x="1266" y="313">Hash<tspan x="1266" y="363">1</tspan></text>
+        <g transform="translate(350.09264,161.55386)">
+          <text y="270" x="917" class="C32">hash(1-0, 1-1)</text>
+        </g>
+      </g>
+      <g transform="translate(-2206.7709,-71.25646)">
+        <use href="#hashbox" x="599" y="259"/>
+        <text class="C40" x="801" y="313">Hash<tspan x="801" y="363">0</tspan></text>
+        <g transform="translate(548.85588,-79.555055)">
+          <text y="511" x="253" class="C32">hash(0-0, 0-1)</text>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(0,-243)">
+        <use href="#hashbox" x="803" y="0"/>
+        <text y="73" x="950" class="C40">Top Hash</text>
+        <text class="C32" x="950" y="165">hash(0,1)</text>
+    </g>
+    <g transform="translate(104,439)">
+        <use href="#hashbox" x="0" y="0"/>
+        <text class="C40" x="100" y="50">Hash<tspan x="100" y="104">0-0</tspan></text>
+        <text class="C32" x="100" y="170">hash(B1)</text>
+   </g>
+
+    <g transform="translate(555,439)">
+        <use href="#hashbox" x="0" y="0"/>
+        <text class="C40" x="100" y="50">Hash<tspan x="100" y="104">0-1</tspan></text>
+        <text class="C32" x="100" y="170">hash(B2)</text>
+   </g>
+
+    <g transform="translate(1020,439)">
+        <use href="#hashbox" x="0" y="0"/>
+        <text class="C40" x="100" y="50">Hash<tspan x="100" y="104">1-0</tspan></text>
+        <text class="C32" x="100" y="170">hash(B3)</text>
+   </g>
+
+    <g transform="translate(1471,439)">
+        <use href="#hashbox" x="0" y="0"/>
+        <text class="C40" x="100" y="50">Hash<tspan x="100" y="104">1-1</tspan></text>
+        <text class="C32" x="100" y="170">hash(B4)</text>
+   </g>
+
+  <g transform="translate(104,800)">
+    <use href="#block" x="0" y="0"/>
+    <text class="C40" x="50" y="60">L1</text>
+  </g>
+
+  <g transform="translate(560,800)">
+    <use href="#block" x="0" y="0"/>
+    <text class="C40" x="50" y="60">L2</text>
+  </g>
+
+  <g transform="translate(1020,800)">
+    <use href="#block" x="0" y="0"/>
+    <text class="C40" x="50" y="60">L3</text>
+  </g>
+
+  <g transform="translate(1480,800)">
+    <use href="#block" x="0" y="0"/>
+    <text class="C40" x="50" y="60">L4</text>
+  </g>
+
+  <g class="arr">
+    <path d="m 1691,789 -10e-5,-126" />
+    <path d="m 1226,792 -2e-4,-126"  />
+    <path d="m 762,786  -2e-4,-126"  />
+    <path d="m 298,792  -10e-5,-126" />
+    <path d="M 298,443  430.58941,317"/>
+    <path d="M 1226,443 1359.222,317" />
+    <path d="M 760,440  627,314"/>
+    <path d="M 1689,440 1555,314"/>
+    <path d="m 620,94   223,-122"/>
+    <path d="M 1368,94  1145.1993,-27.181767"/>
+  </g>
+  </g>
+<script xmlns="" id="bw-fido2-page-script"/></svg>
