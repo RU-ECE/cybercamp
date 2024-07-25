@@ -1,0 +1,184 @@
+\input{preamble.tex}
+
+\title[]{Introduction to Cryptography}
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{withoutheadline}
+
+\begin{frame}{By the end of today you will be able to...}
+\begin{itemize}
+    \item Define major cryptographic concepts and terms
+    \item Generate problems that students can solve interactively as puzzles
+    \item Generate programming exercises to teach how to do real cryptography
+    \item Develop materials for K-12 lessons
+    \item Support differential lessons (programming and conceptual)
+    \item Describe the fundamental computing hardware that modern cryptography uses
+    \item Identify weaknesses and dangers in current cryptographic systems
+    \item There is presumably a wide range of programming abilities here! You can
+    \begin{itemize}
+        \item Write lesson plans that avoid programming if that's better for you or your students
+        \item Write code using Python or Java, whatever you are most comfortable with
+        \item Use ChatGPT or (recommended) Claude to write code that you can use
+    \end{itemize}
+\end{itemize}
+\end{frame}
+        
+\begin{frame}{Introduction to Cryptography}
+\begin{itemize}
+    \item What is Cryptography?
+    \item Importance of Cryptography
+    \item Basic Terminology
+    \item Historical Background
+    \item Substitution Ciphers
+    \item Symmetric Cryptography
+    \item Asymmetric Cryptography
+    \item Common Cryptographic Algorithms
+    \item Cryptographic Applications
+    \item Future of Cryptography
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What is Cryptography?}
+\begin{itemize}
+    \item Science of securing communication
+    \item Encodes messages to protect information
+    \item Ensures confidentiality, integrity, authenticity
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Importance of Cryptography}
+\begin{itemize}
+    \item Protects sensitive information
+    \item Secures online transactions
+    \item Prevents unauthorized access
+    \item Ensures data integrity
+    \item Vital for national security
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Basic Terminology}
+\begin{itemize}
+    \item Plaintext: Unencrypted information
+    \item Ciphertext: Encrypted information
+    \item Encryption: Process of converting plaintext to ciphertext
+    \item Decryption: Process of converting ciphertext back to plaintext
+    \item Key: Secret value used in encryption/decryption
+\end{itemize}
+\end{frame}
+
+\begin{frame}{History of Cryptography}
+\begin{itemize}
+    \item Ancient civilizations
+    \item Caesar Cipher
+    \item Vigenère Cipher
+    \item Playfair Cipher
+    \item Enigma Machine
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Caesar Cipher}
+\begin{itemize}
+    \item Simple substitution cipher
+    \item Shift each letter by fixed number
+    \item Example: Shift by 3
+    \item Plaintext: HELLO
+    \item Ciphertext: KHOOR
+\end{itemize}
+
+%\begin{lstlisting}[language=c++,mathescape=true]
+%    void f() {}
+%\end{lstlisting}
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z \\
+D E F G H I J K L M N O P Q R S T U V W X Y Z A B C \\
+
+\end{frame}
+
+\begin{frame}{Caesar Cipher Exercise}
+\begin{itemize}
+    \item Decode the message
+    \item Ciphertext: ZKHQ WKH PRRQ KLWV BRXU HBH
+    \item Shift by 3
+    \item Plaintext:  \_\_\_\_ \_\_\_ \_\_\_\_ \_\_\_\_ \_\_\_\_ \_\_\_
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Caesar Cipher Exercise}
+\begin{itemize}
+    \item Define a secret message
+    \item Define the key (shift by an amount from 1 to 26)
+    \item Compute the encrypted message
+    \item Exchange secret messages with a partner
+    \item Decrypt by reversing the process
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Breaking a Caesar Cipher}
+\begin{itemize}
+    \item Brute-force attack
+    \item Test all possible shifts (25 keys)
+    \item Find readable plaintext
+    \item Example: Shift by 1 to 25
+    \item Q: How can we create a cipher that is more difficult to break?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Vigenère Cipher Explained}
+\begin{itemize}
+    \item Polyalphabetic substitution cipher
+    \item Uses a repeating keyword
+    \item Each letter in plaintext shifted by keyword letter
+    \item Example:
+    \begin{itemize}
+        \item Keyword: KEY
+        \item Plaintext: ATTACK AT DAWN
+        \item Ciphertext: KXRKGI EX HEUR
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Vigènere Cipher Example}
+\begin{itemize}
+    \item Keyword: KEY
+    \item Plaintext: ATTACK AT DAWN
+    \item Ciphertext: KVVCCS DC HCPZ
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Build Your Own Vigenère Cipher}
+\begin{itemize}
+    \item Choose a keyword
+   \item Encrypt the message
+   \item Example: "HELLO WORLD" with "KEY"
+   \item Ciphertext: \_ \_ \_ \_ \_ \ \_ \_ \_ \_ \_ \_
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Playfair Cipher}
+\begin{itemize}
+    \item Digraph substitution cipher
+    \item Uses a 5x5 matrix from keyword
+    \item Encrypts pairs of letters
+    \item Example:
+    \begin{itemize}
+        \item Keyword: MONARCHY
+        \item Plaintext: HELLO
+        \item Ciphertext: HF LX PR
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Playfair Cipher Matrix}
+\begin{tabular}{|c|c|c|c|c|}
+  M & O & N & A & R   \\
+  C & H & Y & B & D   \\
+  E & F & G & I/J & K \\
+  L & P & Q & R & S   \\
+  T & U & V & W & X   \\
+\end{tabular}
+\end{frame}
+
+\end{withoutheadline}
+\end{document} 

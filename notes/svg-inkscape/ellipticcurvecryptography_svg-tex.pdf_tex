@@ -1,0 +1,80 @@
+%% Creator: Inkscape 1.1.2 (0a00cf5339, 2022-02-04), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'ellipticcurvecryptography_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{346.5bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.66989228)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{ellipticcurvecryptography_svg-tex.pdf}}%
+    \put(0.0021645,0.5919702){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Key\end{tabular}}}}%
+    \put(0.02380952,0.54868016){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Generation\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{ellipticcurvecryptography_svg-tex.pdf}}%
+    \put(0.02380952,0.46210007){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Generate\end{tabular}}}}%
+    \put(0.03463203,0.41881003){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Public and Private Keys\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{ellipticcurvecryptography_svg-tex.pdf}}%
+    \put(0.43506494,0.5919702){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Encryption\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{ellipticcurvecryptography_svg-tex.pdf}}%
+    \put(0.4025974,0.46210007){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Encrypt\end{tabular}}}}%
+    \put(0.4025974,0.41881003){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Data\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{ellipticcurvecryptography_svg-tex.pdf}}%
+    \put(0.86796537,0.5919702){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Decryption\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{ellipticcurvecryptography_svg-tex.pdf}}%
+    \put(0.88961039,0.46210007){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Decrypt\end{tabular}}}}%
+    \put(0.87878788,0.41881003){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Data\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{ellipticcurvecryptography_svg-tex.pdf}}%
+    \put(0.06709957,0.22400484){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Digital\end{tabular}}}}%
+    \put(0.06709957,0.18071479){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Signature\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{ellipticcurvecryptography_svg-tex.pdf}}%
+    \put(0.02380952,0.05084466){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Create and\end{tabular}}}}%
+    \put(0.02380952,0.00755462){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Verify Signatures\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{ellipticcurvecryptography_svg-tex.pdf}}%
+  \end{picture}%
+\endgroup%

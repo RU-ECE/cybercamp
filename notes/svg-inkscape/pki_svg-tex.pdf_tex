@@ -1,0 +1,79 @@
+%% Creator: Inkscape 1.1.2 (0a00cf5339, 2022-02-04), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'pki_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{219.94775391bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.02123196)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{pki_svg-tex.pdf}}%
+    \put(0.0034099,0.89847553){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Certificate\end{tabular}}}}%
+    \put(0.05455841,0.83027752){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Authority (CA)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{pki_svg-tex.pdf}}%
+    \put(0.03750891,0.69388149){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Issuance of\end{tabular}}}}%
+    \put(0.05455841,0.62568348){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Digital Certificates\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{pki_svg-tex.pdf}}%
+    \put(0.68539004,0.89847553){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Users\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{pki_svg-tex.pdf}}%
+    \put(0.63424153,0.69388149){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Request\end{tabular}}}}%
+    \put(0.60014252,0.62568348){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Digital Certificates\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{pki_svg-tex.pdf}}%
+    \put(0.10570692,0.31879242){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CRL\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{pki_svg-tex.pdf}}%
+    \put(0.05455841,0.08009937){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Revoked\end{tabular}}}}%
+    \put(0.05455841,0.01190135){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Certificates\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{pki_svg-tex.pdf}}%
+    \put(0.68539004,0.31879242){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Verification\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{pki_svg-tex.pdf}}%
+    \put(0.63424153,0.08009937){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Validate\end{tabular}}}}%
+    \put(0.66834054,0.01190135){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Digital Certificates\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{pki_svg-tex.pdf}}%
+  \end{picture}%
+\endgroup%

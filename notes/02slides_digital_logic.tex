@@ -1,0 +1,137 @@
+\input{preamble.tex}
+
+\title[]{Introduction to Digital Logic}
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{withoutheadline}
+
+\begin{frame}{Why Digital Logic in a Cryptography Lesson?}
+\begin{itemize}
+    \item All modern cryptography is implemented on computer
+    \item We will look at cryptographic building blocks and how they are implemented
+    \item Vital to understand how data is represented on a computer
+\end{itemize}
+\end{frame}
+    
+\begin{frame}{Bits and Bytes}
+\begin{itemize}
+    \item Bit: Smallest unit of data (0,1)
+    \item Byte: Group of 8 bits
+    \item Type of data completely depends on context
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Data Representations?}
+\begin{itemize}
+    \item 2 bits: 00, 01, 10, 11
+    \item 3 bits: 000, 001, 010, 011, 100, 101, 110, 111
+    \item n bits = $2^n$ combinations
+    \item Data types
+    \begin{itemize}
+        \item integers
+        \item floating point
+        \item ASCII characters
+        \item unicode
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{3 bit}
+\begin{itemize}
+    \item 2 bits: 00, 01, 10, 11
+    \item 3 bits: 000, 001, 010, 011, 100, 101, 110, 111
+    \item n bits = $2^n$ combinations
+    \item Data types
+    \begin{itemize}
+        \item integers
+        \item floating point
+        \item ASCII characters
+        \item unicode
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Representing 3 bit Integers}
+%\begin{tabular}{p{2.5cm}|p{2.5cm}|p{2.5cm}}    \hline
+%    bits & unsigned & signed \\
+%    000  &        0 &      0 \\
+%    001  &        1 &      1 \\
+%    010  &        2 &      2 \\
+%    011  &        3 &      3 \\
+%    100  &        4 &     -4 \\
+%    101  &        5 &     -3 \\
+%    110  &        6 &     -2 \\
+%    111  &        7 &     -1 \\ \hline
+%\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{Base 16: Hexadecimal}
+\begin{tabular}{c|c|c|c|c}
+    \hline
+    Hex & bits & --- & Hex & bits  \\ \hline
+    0 & 0000 & & 8 & 1000 \\
+    1 & 0001 & & 9 & 1001 \\
+    2 & 0010 & & A & 1010 \\
+    3 & 0011 & & B & 1011 \\
+    4 & 0100 & & C & 1100 \\
+    5 & 0101 & & D & 1101 \\
+    6 & 0110 & & E & 1110 \\
+    7 & 0111 & & F & 1111 \\    \hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Hexadecimal System}
+    \begin{itemize}
+        \item Hex: Base-16 system
+        \item Compare with binary and decimal
+        \item Easier readability of binary data
+        \item Converting between hex, binary, and decimal
+    \end{itemize}
+    \end{frame}
+    
+\begin{frame}{Encoding a byte in Hexadecimal}
+\begin{itemize}
+    \item D9 = 10011001
+    \item AF = 10101111
+    \item 8C = 10001100
+\end{itemize}
+\end{frame}
+
+\begin{frame}{ASCII Encoding}
+\begin{itemize}
+    \item ASCII: American Standard Code for Information Interchange
+    \item Maps characters to binary values
+    \item ASCII table overview \url{https://www.ascii-code.com/}
+    \item Example: 'A' = 01000001 = 65
+    \item Example: 'B' = 01000010 = 66
+    \item Example: 'a' = 01100001 = 97
+\end{itemize}
+\end{frame}
+    
+
+\begin{frame}[fragile]{Bitwise Operations}
+\begin{itemize}
+    \item Logic gates on computers are built out of transistors
+    \item Circuits are built to yield desired operations (add, subtract, multiply, divide)
+\end{itemize}
+\begin{tabular}{c|c|c|c|c|c}    %\hline
+    A & B & NOT A & A AND B & A OR B & A XOR B \\ %\hline
+    0 & 0 &     1 &       0 &      0 &       0 \\ %\hline
+    0 & 1 &     1 &       0 &      1 &       1 \\ %\hline
+    1 & 0 &     0 &       0 &      1 &       1 \\ %\hline
+    1 & 1 &     0 &       1 &      1 &       0 \\ \hline
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}{Computer Bit Operations}
+\begin{itemize}
+    \item Bitwise operations
+\end{itemize}
+\end{frame}
+
+\end{withoutheadline}
+\end{document} 
