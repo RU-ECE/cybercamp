@@ -1,0 +1,8 @@
+*.pem
+*~
+
+# ignore c++ binaries
+*.o
+*.exe
+*.a
+*.so
