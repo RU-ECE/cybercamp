@@ -30,114 +30,39 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Vigenère Cipher Example}
+\begin{frame}{Generating Random Numbers?}
 \begin{itemize}
-    \item Keyword: KEY
-    \item Plaintext: ATTACK AT DAWN
-    \item Ciphertext: KVVCCS DC HCPZ
+    \item We do not understand what random really means
+    \item Not even clear that it exists
+    \item Bare minimum: Cannot be predicted by the attacker
+    \item Ordinary random number generators in programming languages are not good enough
+    \item Cryptographic random number generators are much harder
+    \item Some even use physical sources of random data
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Build Your Own Vigenère Cipher}
+\begin{frame}{Relying on People for Randomness}
 \begin{itemize}
-    \item Choose a keyword
-    \item Encrypt the message
-    \item Example: "HELLO WORLD" with "KEY"
-    \item Ciphertext: \_\_\_\_\_\ \_\_\_\_\_\_
-\end{itemize}
+    \item People are notoriously bad at picking random sequences
+    \item Predictable based on knowing the people
+    \item A big, complicated password is hard to remember
+    \item Very often, recorded somewhere
+\end{itemize}    
 \end{frame}
 
-\begin{frame}{Playfair Cipher}
+\begin{frame}{Impact of Computers: Lifetime of Secrecy}
 \begin{itemize}
-    \item Digraph substitution cipher
-    \item Uses a 5x5 matrix from keyword
-    \item Encrypts pairs of letters
-    \item Example:
-    \begin{itemize}
-        \item Keyword: MONARCHY
-        \item Plaintext: HELLO
-        \item Ciphertext: HF LX PR
-    \end{itemize}
+    \item Computers are very fast, so the number of permutations must be huge
+    \item Advances in processing speed mean that no secret is safe forever
+    \item Consider Enigma: In World War II, believed secure by Germany
+    \item Broken (with difficulty) by England with critical help from Polish cryptographers
+    \item Today cpus costing \$.10 could break the code with ease 
 \end{itemize}
-\end{frame}
-
-\begin{frame}{Playfair Cipher Matrix}
-\begin{tabular}{|c|c|c|c|c|}
-    \hline
-    M & O & N & A & R \\
-    \hline
-    C & H & Y & B & D \\
-    \hline
-    E & F & G & I/J & K \\
-    \hline
-    L & P & Q & R & S \\
-    \hline
-    T & U & V & W & X \\
-    \hline
-\end{tabular}
-\end{frame}
-
-\begin{frame}{Enigma Machine}
-\begin{itemize}
-    \item Used in WWII by Nazi Germany
-    \item Electromechanical rotor machine
-    \item Polyalphabetic substitution cipher
-    \item Complex key settings
-    \item Daily key sheets
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Enigma Machine Example}
-\begin{itemize}
-    \item Rotors: Three, adjustable
-    \item Plugboard: Swappable letter pairs
-    \item Example plaintext: ATTACK
-    \item Ciphertext: BJRZGY
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Stream Ciphers}
-\begin{itemize}
-    \item Read in a stream of data
-    \item Write out a stream of data
-    \item Use a key to generate secret key
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Computer Data and Basic Information Theory}
-\end{frame}
-
-\begin{frame}{Bits and Bytes}
-\begin{itemize}
-    \item Bit: Smallest unit of data (0 or 1)
-    \item Byte: Group of 8 bits
-    \item All data on a computer is bits
-    \item Meaning is context-dependent
-\end{itemize}
-01000001: 65, 'A' \\
-We will focus on raw bits to learn the building blocks of modern cryptography
-\end{frame}
-
-\begin{frame}{Bitwise Operations}
-\begin{itemize}
-    \item Computers are built out of digital logic gates
-    \item AND
-    \item OR
-    \item XOR
-    \item NOT
-\end{itemize}
-\begin{tabular}{|c|c|c|c|c|}
-    \hline
-    A & B & A AND B & A OR B & A XOR B \\
-    0 & 0 &       0 &      0 &       0 \\
-    0 & 1 &       0 &      1 &       1 \\
-    1 & 0 &       0 &      1 &       1 \\
-    1 & 1 &       1 &      1 &       0 \\ \hline
 \end{frame}
 
 \begin{frame}{Modern Cryptography}
 \begin{itemize}
-    \item Symmetric Cryptography
+    \item Symmetric Cryptography (traditional)
     \begin{itemize}
     \item Both parties use the same key
     \item Both parties use the same algorithm
@@ -147,7 +72,7 @@ We will focus on raw bits to learn the building blocks of modern cryptography
     \begin{itemize}
     \item Relies on one-way functions
     \item May be insecure
-    \item if secure, many operations possible
+    \item if secure, many new operations possible
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -161,7 +86,7 @@ We will focus on raw bits to learn the building blocks of modern cryptography
     \item Anyone with the key can do this
     \item XOR is its own inverse, to recover, do it again
     \item $29 24 2d 2d 2e \oplus 41 41 41 41 41 = 68 65 6c 6c 6f$
-    \item Same is possible with addition and subtraction instead 
+    \item Analogous to Caesar cipher 
 \end{itemize}
 \end{frame}
 
@@ -191,14 +116,14 @@ We will focus on raw bits to learn the building blocks of modern cryptography
 \end{frame}
 
 \begin{frame}{Current Symmetric Cryptography: AES-256}
-    \begin{itemize}
-        \item 256-bit key
-        \item 128-bit block
-        \item 14 rounds of encryption
-        \item substitution, transposition, mixing
-        \item \url{https://www.cryptool.org/en/cto/aes-animation}
-    \end{itemize}
-    \includegraphics[scale=0.2]{aes256.png}
+\begin{itemize}
+    \item 256-bit key
+    \item 128-bit block
+    \item 14 rounds of encryption
+    \item substitution, transposition, mixing
+    \item \url{https://www.cryptool.org/en/cto/aes-animation}
+\end{itemize}
+\includegraphics[scale=0.2]{aes256.png}
 \end{frame}
 
 \begin{frame}{Increasing Difficulty: CBC}
@@ -208,6 +133,41 @@ We will focus on raw bits to learn the building blocks of modern cryptography
         \item Even CBC is subject to plaintext attack
     \end{itemize}
     \includegraphics[scale=0.25]{CBC.png}
+\end{frame}
+
+\begin{frame}{Brute Force Attacks on AES-256}
+\begin{itemize}
+    \item How hard is a brute force attack?
+    \item 256-bit key: $2^{256} = 1.1 x 10^{77}$
+    \item Additionally the data is 128 bits
+    \item Even trying $10^9$ keys per second, tiny probability of working
+    \item Seems effective against computers for the next 10-20 years
+\end{itemize}
+\end{frame}
+
+\begin{frame}{How much Faster Have Computers Gotten?}
+\begin{itemize}
+    \item Moore's law: computer circuits double every 18 to 24 months
+    \item Hanging in, but speed has not been increasing at the same related
+    \item Still, if the problem can be split into parallel chunks...
+\end{itemize}
+\includegraphics[width=10cm]{mooreslaw.pdf}
+\end{frame}
+
+
+\begin{frame}{Asymmetric Cryptography}
+\begin{itemize}
+    \item 1969: proposed asymmetric cryptography
+    \item Everyone knows the public keys, can be distributed
+    \item Source of public keys must be trustworthy
+    \item Generally slower than symmetric cryptography operations
+    \item Relies on one-way functions
+    \item $m' =E(m, k_{pub})$
+    \item $m = D(m', k_{priv})$
+    \item E and D are inverse operators
+    \item $E(D(m, k_{pub}), k_{priv}) = m$
+    \item $D(E(m, k_{pub}), k_{priv}) = m$
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Asymmetric Cryptography}
@@ -470,449 +430,22 @@ $gcd = a s_i + b t_i = 240*-9 + 46*47 = 2$
 \begin{frame}{ECC Animation}
     \url{https://curves.xargs.org/}
 \end{frame}
-    
-\begin{frame}{Byzantine Fault Tolerance (BFT)}
-    \begin{itemize}
-        \item Byzantine generals problem
-        \item How to come to consensus when some of the parties may be traitors
-        \item Majority Rule: Blockchain ledger requires majority of nodes to agree
-        \item If an attacker can gain > 51\% of nodes they can change reality
-    \end{itemize}
-\end{frame}
 
-\begin{frame}{Practical Byzantine Fault Tolerance (PBFT)}
-    \begin{itemize}
-        \item Castro and Liskov 1990 %\url{} 
-        \item $2/3$ majority rule
-    \end{itemize}
-    \includegraphics[scale=0.25]{PBFT-consensus-algorithm.png}
-\end{frame}
 
-\begin{frame}{Consensus Mechanisms in Blockchain}
-    A consensus mechanism in blockchain is a way for distributed actors to agree on a ledger
-    \begin{itemize}
-        \item Mechanism must be able to survive an attacker trying to inject bad data
-        \item Multiple parties must agree and synchronize their efforts
-        \item Current Ideas include
-        \begin{itemize}
-            \item Proof of Work (Nodes compete to compute something)
-            \item Proof of Stake (Nodes get chances to register transactions based on their holdings)
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Proof of Work (PoW) Algorithm Explained}
-    \begin{itemize}
-        \item People are rewarded for recording transactions in the chain
-        \item Profit is amortized cost of hardware and electricity to run
-        \item All nodes compete to compute a hard computational problem
-        \item First to complete publishes the result and links a new block onto the chain
-        \item Parties willing to validate a transaction are paid (mining)
-        \item Over time, computation is expected to get faster, so reward drops over time
-        \item PoW is a huge waste of power
-        \item The problem is that without PoW, difficult to stop one party from taking control of the chain
-    \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Pseudocode: Proof of Work in Bitcoin}
-    Repeatedly hash a value based on the block until we reach a value with the right number of leading zeros
-\begin{lstlisting}[language=c++]
-block hash = sha256(TX_root, timestamp, previous_hash)
-nonce = 0
-repeat
-  nonce++
-until sha256(TX_root, timestamp, previous_hash, nonce) < target
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}{Electricity use: Bitcoin}
-    \begin{itemize}
-        \item Bitcoin started using CPUs in 2009
-        \item For greater efficiency, ASIC (custom) mining hardware 2013
-        \item Siberian shacks can be heated free because the cost of electricity is lower than the earned bitcoin
-    \end{itemize}
-%    \url{https://www.coindesk.com/markets/2019/08/23/bitcoin-miners-are-heating-homes-free-of-charge-in-frigid-siberia}
-\end{frame}
-
-\begin{frame}{Electricity use: Bitcoin}
-This graph shows bitcoin electricity usage over time
+\begin{frame}{Applications}
 \begin{itemize}
-    \item 2017: Bitcoin uses more electricity than Belgium
-    \item 2021: Bitcoin uses more electricity than Argentina
-    \item 2024: Bitcoin uses more electricity than Ukraine
-\end{itemize} 
-\includegraphics[scale=0.25]{Digiconomist_energy-vs-countries.png}
-\end{frame}
-
-
-\begin{frame}{Proof of Stake (PoS) Algorithm Explained}
+    \item Blockchain: A ledger where each entry is cryptographically signed
     \begin{itemize}
-        \item Nodes register transactions based on their stake
-        \item Problem that big stakeholders can hijack the chain
-        \item Fairness: the rich get richer
+        \item Finance
+        \item Medicine
     \end{itemize}
-\end{frame}
-
-\begin{frame}{Replacements for PoW and PoS}
-    \begin{itemize}
-        \item Somehow make everyone register, and give everyone equal access
-        \item Base on posting a bond or cell phone identity, ie require money and physical presence
-        \item Problem to prevent people from registering multiple devices to try to take over
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Delegated Proof of Stake (DPoS) Consensus}
-    \begin{itemize}
-        \item Overview of DPoS consensus mechanism
-        \item Role of elected delegates and voting
-        \item Scalability benefits and potential issues
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Federated Byzantine Agreement (FBA) Protocol}
-    \begin{itemize}
-        \item Explanation of FBA protocol
-        \item Usage in permissioned blockchain networks
-        \item Comparison with other consensus algorithms
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Sharding in Blockchain Networks}
-    \begin{itemize}
-        \item Definition and purpose of sharding
-        \item How sharding improves blockchain scalability
-        \item Challenges and potential solutions
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Scalability Challenges and Solutions in Blockchain}
-    \begin{itemize}
-        \item Overview of scalability issues in blockchain
-        \item Layer 1 and Layer 2 scaling solutions
-        \item Examples of implemented solutions
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Layer 2 Solutions: Lightning Network and Plasma}
-    \begin{itemize}
-        \item Introduction to Lightning Network and Plasma
-        \item Off-chain payment channels and sidechains
-        \item Benefits and limitations of Layer 2 solutions
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Smart Contracts: Introduction and Use Cases}
-    \begin{itemize}
-        \item Definition and characteristics of smart contracts
-        \item Examples of smart contract applications
-        \item Potential impact on various industries
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Security Risks}
-    \begin{itemize}
-        \item \textbf{51\% Attack:} If a single entity or a coalition of entities controls more than 50\% of the network's computational power in a proof-of-work blockchain, they can manipulate transaction history, double-spend coins, and disrupt the network's operations.
-        \item \textbf{Data Modification:} Once data is recorded on the blockchain, it is immutable. However, if incorrect data is recorded, it cannot be easily corrected or removed, leading to data integrity issues.
-        \item If the private wallet id is stolen, it can be emptied
-        \item If the encryption system becomes breakable, then nothing in the blockchain is safe
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Security Risks (Continued)}
-    \begin{itemize}
-    \item \textbf{Smart Contract Vulnerabilities:} Smart contracts are susceptible to bugs and vulnerabilities in the code, which can lead to exploits and financial losses.
-    \item \textbf{Sybil Attacks:} In a Sybil attack, a malicious actor creates multiple fake identities or nodes to gain control or influence over the network.
-    \item \textbf{Regulatory and Compliance Risks:} Blockchain projects may face regulatory challenges and legal uncertainties, especially regarding compliance with existing laws and regulations related to securities, privacy, and financial transactions.
-    \item \textbf{Privacy Risks:} While blockchain offers pseudonymity, transactions and data stored on the blockchain can still be traced back to individuals or entities, posing privacy risks.
-    \item \textbf{Scalability and Performance:} Blockchain networks face scalability and performance challenges, especially as the number of transactions and users increase. Slow transaction speeds and high fees can impact user experience and adoption.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Privacy and Anonymity in Blockchain Transactions}
-    \begin{itemize}
-        \item Challenges of privacy in public blockchains
-        \item Techniques for enhancing privacy such as ring signatures and zero-knowledge proofs
-        \item Privacy-focused blockchain projects
-        \begin{itemize}
-            \item 
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Challenges to Privacy in Public Blockchains (Part 1)}
-    \begin{enumerate}
-        \item \textbf{Transparent Transactions}:
-            \begin{itemize}
-                \item All data is visible, exposing transaction details such as sender and recipient addresses, transaction amounts, and timestamps.
-                \item Lack of privacy can compromise user anonymity and expose sensitive financial information to anyone with access to the blockchain.
-            \end{itemize}
-        
-        \item \textbf{Address Reuse}:
-            \begin{itemize}
-                \item Reusing addresses in public blockchains can lead to privacy leaks as adversaries can link multiple transactions to the same user.
-                \item Blockchain transactions are permanent and immutable, allowing adversaries to trace spending habits and income sources.
-            \end{itemize}
-        
-        \item \textbf{Blockchain Analysis Tools}:
-            \begin{itemize}
-                \item Enable third parties to trace and analyze blockchain transactions
-                \item Uncovering patterns and relationships between addresses.
-                \item Used by adversaries, regulators, and law enforcement agencies to deanonymize users and track illicit activities.
-            \end{itemize}
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}{Challenges to Privacy in Public Blockchains (Part 2)}
-    \begin{enumerate}
-        \setcounter{enumi}{3}
-        \item \textbf{Network Analysis}:
-            \begin{itemize}
-                \item IP address correlation
-                \item Transaction propagation analysis
-                \item Can deanonymize users by linking their blockchain transactions to their internet activities.
-            \end{itemize}
-        
-        \item \textbf{Data Leakage from Smart Contracts}:
-            \begin{itemize}
-                \item Smart contracts may expose sensitive data or metadata, compromising user privacy.
-                \item Improper data handling
-                \item Unintended information disclosure can lead to data leakage and privacy breaches.
-            \end{itemize}
-        
-        \item \textbf{Regulatory Compliance}:
-            \begin{itemize}
-                \item Know Your Customer (KYC) and Anti-Money Laundering (AML) requireents
-                \item May conflict with user privacy expectations on public blockchains.
-                \item Compliance with these regulations often involves identity verification and transaction monitoring, undermining user anonymity and privacy.
-            \end{itemize}
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}{Privacy-Focused Blockchain Projects (Part 1)}
-    \begin{enumerate}
-        \item \textbf{Monero (XMR)}:
-            \begin{itemize}
-                \item Privacy-focused cryptocurrency that aims to provide secure, private, and untraceable transactions.
-                \item It utilizes features such as
-                \begin{itemize}
-                    \item Ring signatures
-                    \item stealth addresses
-                    \item confidential transactions
-                \end{itemize}
-            \end{itemize}
-        
-        \item \textbf{Zcash (ZEC)}:
-            \begin{itemize}
-                \item Zcash is a privacy-centric cryptocurrency that employs zero-knowledge proofs (zk-SNARKs) to enable shielded transactions.
-                \item Transaction details are encrypted and only accessible to the parties involved, providing enhanced privacy while still allowing for selective disclosure when necessary.
-            \end{itemize}
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}{Privacy-Focused Blockchain Projects (Part 2)}
-    \begin{enumerate}
-        \setcounter{enumi}{2}
-        \item \textbf{Dash (formerly Darkcoin)}:
-            \begin{itemize}
-                \item Dash is a privacy-focused cryptocurrency that offers optional privacy features through its PrivateSend functionality.
-                \item It utilizes a decentralized mixing mechanism to obfuscate the origin and destination of transactions, enhancing privacy for users.
-            \end{itemize}
-        
-        \item \textbf{Grin (GRIN)}:
-            \begin{itemize}
-                \item Grin is an open-source privacy-focused cryptocurrency that emphasizes privacy, scalability, and fungibility.
-                \item It implements the Mimblewimble protocol, which achieves privacy by default through features such as confidential transactions and CoinJoin.
-            \end{itemize}
-        
-        \item \textbf{Beam (BEAM)}:
-            \begin{itemize}
-                \item Beam is a privacy-focused cryptocurrency based on the Mimblewimble protocol, similar to Grin.
-                \item It offers features such as confidential transactions, opt-in auditability, and atomic swaps to provide privacy, scalability, and interoperability.
-            \end{itemize}
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}{Zero-Knowledge Proofs}
-    Zero-knowledge proofs (ZKPs) allow one party, the prover, to convince another party, the verifier, that a statement is true without revealing any additional information beyond the validity of the statement itself. This process involves three main steps:
-    
-    \begin{enumerate}
-        \item \textbf{Setup}: Agreement on parameters and cryptographic primitives.
-        \item \textbf{Proof Generation}: Prover constructs a proof without revealing the witness.
-        \item \textbf{Proof Verification}: Verifier verifies the proof's validity.
-    \end{enumerate}
-    
-    Key properties of ZKPs:
-    
-    \begin{itemize}
-        \item \textbf{Completeness}: Convincing the verifier of a true statement.
-        \item \textbf{Soundness}: Ensuring false statements cannot be proven.
-        \item \textbf{Zero-knowledge}: Revealing no additional information beyond statement validity.
-    \end{itemize}
-    
-    ZKPs find applications in privacy-preserving transactions, authentication protocols, identity management, and secure multiparty computation.
-\end{frame}
-
-\begin{frame}{Ring Signatures and Confidential Transactions}
-    \begin{itemize}
-        \item Ring signatures are a cryptographic protocol that enables users to sign transactions without revealing their private keys.
-        \item User combines their public key with multiple other users making it difficult to tell which user signed.
-        \item Ring signatures are used to provide additional security for transactions and prevent tampering.
-    \end{itemize}
-    \includegraphics[scale=0.25]{Medium_RingSignature.png}
-\end{frame}
-
-\begin{frame}{Ring Signature Privacy}
-    \begin{itemize}
-        \item **Anonymity**: Ring signatures obscure the true identity of the signer by including a group of potential signers' public keys in the signature.
-        \item **Increased Privacy**: With a larger anonymity set, it becomes difficult for adversaries to determine the true signer of a message, enhancing user privacy.
-        \item **Plausible Deniability**: Signers benefit from plausible deniability as any member of the ring could have produced the signature, making it challenging to attribute the signature to a specific individual.
-        \item **Privacy-Preserving Transactions**: Ring signatures are commonly used in privacy-focused cryptocurrencies like Monero to facilitate confidential and untraceable transactions, protecting user financial privacy.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Ring Signature Security}
-    \begin{itemize}
-        \item **Resistance to Compromise**: Ring signatures distribute the signing authority across a group of potential signers, reducing the risk of compromise associated with individual signatures.
-        \item **Forgery Resistance**: Ring signatures are computationally binding, making it infeasible for adversaries to produce a valid signature without access to the legitimate signer's private key or collusion with other ring members.
-        \item **Anonymity Sets**: Larger anonymity sets provided by ring signatures make it more challenging for adversaries to conduct targeted attacks or surveillance, enhancing the security of the signer.
-        \item **Enhanced Security Measures**: Besides privacy benefits, ring signatures also offer additional security advantages, making them a valuable tool for ensuring the security and integrity of digital transactions and communications.
-    \end{itemize}
+    \item Smart Contracts: a program executed on a blockchain where the code defines the deal
+    \item Internet of Things: devices should communicate encrypted (why?)
+\end{itemize}
+Can you see attacks on any of these concepts?
 \end{frame}
 
 
-\begin{frame}{Blockchain Governance Models}
-    The mechanisms and processes by which decisions are made
-    \begin{itemize}
-        \item Development
-        \item Maintenance
-        \item Evolution
-    \end{itemize}
-
-    Several types of blockchain governance models
-    \begin{itemize}
-        \item \textbf{Decentralized Governance}: In a decentralized governance model, decision-making power is distributed among network participants, typically through a consensus mechanism. Examples include proof of work (PoW) and proof of stake (PoS) protocols, where stakeholders have a say in network decisions based on their stake or computational power.
-
-        \item \textbf{On-chain Governance}: On-chain governance involves decision-making processes that occur directly on the blockchain through smart contracts or protocol-level voting mechanisms. Participants can vote on proposals to enact changes to the protocol, such as software upgrades or parameter adjustments.
-
-        \item \textbf{Off-chain Governance}: Off-chain governance refers to decision-making processes that occur outside the blockchain network, often through informal discussions, forums, or community meetings. While less transparent, off-chain governance allows for more flexibility and faster decision-making.
-
-        \item \textbf{Hybrid Governance}: Some blockchain networks employ a combination of on-chain and off-chain governance mechanisms to balance transparency, efficiency, and decentralization. Hybrid models often use on-chain mechanisms for protocol-level decisions and off-chain processes for community engagement and coordination.
-
-        \item \textbf{Token-based Governance}: Many blockchain networks utilize tokens as a means of governance, where token holders can vote on proposals or delegate their voting power to others. Token-based governance aligns incentives by giving stakeholders a direct stake in the network's success.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Decentralized Governance Example: Bitcoin}
-    \begin{itemize}
-        \item In the Bitcoin network, decision-making power is decentralized among miners who contribute computational power to secure the network.
-        \item Changes to the protocol require broad consensus among miners, developers, and users.
-        \item For example, proposed changes to the Bitcoin protocol undergo extensive community discussion and are implemented through software updates known as Bitcoin Improvement Proposals (BIPs).
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{On-chain Governance Example: Tezos}
-    \begin{itemize}
-        \item Tezos employs an on-chain governance mechanism where stakeholders can vote on protocol upgrades and amendments through a formalized voting process.
-        \item Participants can submit proposals, vote on them, and delegate their voting power to others.
-        \item Once a proposal is approved through the voting process, it is automatically implemented into the protocol without the need for manual intervention.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Off-chain Governance Example: Ethereum}
-    \begin{itemize}
-        \item Ethereum's governance model combines on-chain decision-making with off-chain discussions and coordination.
-        \item While major protocol changes are proposed and implemented through on-chain mechanisms (e.g., Ethereum Improvement Proposals), community feedback and discussions often occur off-chain through forums, social media, and developer meetings.
-        \item Off-chain governance allows for broader community participation and informal discussions but may lack the transparency and enforceability of on-chain processes.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Hybrid Governance Example: Cardano}
-    \begin{itemize}
-        \item Cardano utilizes a hybrid governance model that combines on-chain voting with off-chain community engagement.
-        \item Protocol changes and funding proposals are voted on through on-chain mechanisms, ensuring transparency and immutability.
-        \item However, community discussions, research, and development often occur off-chain, allowing for flexibility and collaboration outside the strict confines of the blockchain.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Regulatory Challenges and Compliance in Blockchain}
-    \begin{itemize}
-        \item Overview of regulatory landscape for blockchain and cryptocurrencies
-        \item Compliance requirements for blockchain-based businesses
-        \item Regulatory trends and challenges
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Energy Consumption and Environmental Impact of Blockchain}
-    \begin{itemize}
-        \item Analysis of energy consumption in proof-of-work blockchains
-        \item Environmental concerns and criticisms of blockchain technology
-        \item Efforts to address sustainability issues
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Quantum Computing Threats to Blockchain Security}
-    \begin{itemize}
-        \item Potential impact of quantum computing on blockchain security
-        \item Vulnerabilities of current cryptographic algorithms to quantum attacks
-        \item Research and development efforts for quantum-resistant cryptography
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Immutable Ledger: Data Integrity and Auditing}
-    \begin{itemize}
-        \item Importance of immutability in blockchain
-        \item Use cases of blockchain for data integrity and auditing
-        \item How blockchain ensures tamper-proof records
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Use Cases of Blockchain Beyond Cryptocurrencies}
-    \begin{itemize}
-        \item Diverse applications of blockchain technology in various industries
-        \item Examples of supply chain management, healthcare, voting systems, and more
-        \item Potential benefits and challenges of blockchain adoption
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Future Trends and Research Directions in Blockchain Technology}
-    \begin{itemize}
-        \item Emerging trends in blockchain technology
-        \item Areas of ongoing research and development
-        \item Predictions for the future of blockchain and its impact on society
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Blockchain Primitives}
-    \begin{itemize}
-        \item Cryptographic Hash Functions
-        \item Secure Hash Algorithms (SHA)
-        \item Digital Signatures in Blockchain
-        \item Elliptic Curve Cryptography (ECC)
-        \item Merkle Trees and Merkle Proof
-        \item Public Key Infrastructure (PKI)
-        \item Consensus Algorithms in Blockchain
-        \item Byzantine Fault Tolerance (BFT)
-        \item Smart Contracts and Solidity
-        \item Decentralized Applications (DApps)
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Cryptocurrencies}
-    \begin{itemize}
-        \item Cryptocurrencies are digital assets that use cryptography to secure transactions and verify transactions.
-        \item Geeky appeal that known algorithms prevent inflation
-        \item This ignores basic problems
-        \begin{itemize}
-            \item Many risks, and no Safeguards
-            \item Each cryptosystem may have rules, but the community writing the code can change those rules
-            \item Intrinsic value is zero
-            \item Governments may outlaw use of cryptocurrencies
-            \item While inflation control may be designed into a currency, there is no limit to how many currencies can be created
-        \end{itemize}
-        \item Bitcoin: \url{https://github.com/bitcoin/bitcoin}
-        \item Ethereum: \url{https://github.com/ethereum}
-    \end{itemize}
-\end{frame}
 
 \begin{frame}{Cryptographic Hash Functions}
     \begin{itemize}

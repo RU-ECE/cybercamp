@@ -1,27 +1,82 @@
-Attacks
+\input{preamble.tex}
 
-Plaintext attack
-    if a message is known, reconstruct the key and use it to break other messages
+\title[]{Cryptographic Attacks}
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
 
-DNS attack
-    redirect lookup of domain names to a malicious server that will give a fake server
-    If this leads to poisoning the certificate server, then communication to all servers will be intercepted
+\begin{withoutheadline}
 
-Breaking RSA through a plaintext Attack
-    Beyond the scope of this workshop, but RSA can be broken, so we only use random numbers
+\begin{frame}{Cryptographic Attacks}
+\begin{itemize}
+    \item Cryptography is different than other areas of computer science
+    \item Bugs are not merely passive
+    \item People actively try to find bugs and exploit them to achieve results
+\end{itemize}
+\end{frame}
 
-Breaking RSA using Schorr's algorithm and a quantum computer
-    The NSA has ordered all ISPs to start transitioning to a new cryptosystem.
-    RSA will not be safe when there are quantum computers with 400 qbits capable of staying up long enough.
-    This has not been done yet, but when it is done, suddenly https:// would no longer be safe.
+\begin{frame}{Cryptographic Attacks}
+    \item Evil maid
+    \item Plaintext
+    \item 
+    \item
+    \item
+    \item
+    \item
+\end{frame}
 
-VPNs
-    NORDVPN, Surfshark, ExpressVPN, ProtonVPN, PIA 
-    A VPN encrypts all traffic typically using AES-256.
-    This means your ISP cannot evesdrop and know what you are doing.
-    Of course, the VPN could be forced to eavesdrop by a government, so the location and policies of the VPN provider
-    are very important.
+\begin{frame}{Plaintext attack}
+    \item Given knowledge of a message contents
+    \item Reconstruct the key and use it to break other messages
+    \item Example:
+    \begin{itemize}
+        \item message: 00 00 00 00 65 66 67 68
+        \item XOR encryption, key 4B
+        \item Compute the message
+        \item Can you determine the key from the encrypted message?
+    \end{itemize}
+\end{frame}
 
-    There have been hugely successful attacks on VPNs, so they are not foolproof
+\begin{frame}{RSA Plaintext attack}
+\begin{itemize}
+    \item More complicated than the previous
+    \item RSA can be broken by a plaintext attack
+    \item RSA is also computationally expensive
+    \item Therefore: we only send random numbers through RSA
+    \item Use the Random numbers to construct a joint key (Diffie-Hellman)
+    \item Use AES-256 to encrypt the actual message
+\end{itemize}
+\end{frame}
+
+\begin{frame}{DNS attack}
+\begin{itemize}
+    \item Redirect lookup of domain names
+    \item Build a malicious server that will mimick the real one
+    \item Direct the computer to a fake certificate Authority
+    \item All access to named web servers can then be faked
+\end{itemize}
+\end{frame}
+
+\begin{frame}{VPN attack}
+    \begin{itemize}
+        \item A VPN uses encryption (typically AES-256)
+        \item So local providers cannot see who you are talking to
+        \item Safer, particularly if you don't trust the network (hotels, foreign countries)
+        \item VPNs: NORDVPN, Surfshark, ExpressVPN, ProtonVPN, PIA 
+        A VPN encrypts all traffic typically using AES-256.
+        This means your ISP cannot evesdrop and know what you are doing.
+        Of course, the VPN could be forced to eavesdrop by a government, so the location and policies of the VPN provider
+        are very important.
+    
+        There have been hugely successful attacks on VPNs, so they are not foolproof
+        \end{itemize}
+\end{frame}
+
+%Breaking RSA using Schorr's algorithm and a quantum computer
+%    The NSA has ordered all ISPs to start transitioning to a new cryptosystem.
+%    RSA will not be safe when there are quantum computers with 400 qbits capable of staying up long enough.
+%    This has not been done yet, but when it is done, suddenly https:// would no longer be safe.
+
 
 
