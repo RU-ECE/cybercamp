@@ -30,41 +30,40 @@
     \item 3 bits: 000, 001, 010, 011, 100, 101, 110, 111
     \item n bits = $2^n$ combinations
     \item Data types
-    \begin{itemize}
-        \item integers
-        \item floating point
-        \item ASCII characters
-        \item unicode
-    \end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{3 bit}
-\begin{itemize}
-    \item 2 bits: 00, 01, 10, 11
-    \item 3 bits: 000, 001, 010, 011, 100, 101, 110, 111
-    \item n bits = $2^n$ combinations
-    \item Data types
-    \begin{itemize}
-        \item integers
-        \item floating point
-        \item ASCII characters
-        \item unicode
-    \end{itemize}
+   \begin{itemize}
+       \item integers
+       \item floating point
+       \item ASCII characters
+       \item unicode
+   \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Representing 3 bit Integers}
-\begin{tabular}{p{2.5cm}|p{2.5cm}|p{2.5cm}}    %\hline
-%    bits & unsigned & signed \\
-%    000  &        0 &      0 \\
-%    001  &        1 &      1 \\
-%    010  &        2 &      2 \\
-%    011  &        3 &      3 \\
-%    100  &        4 &     -4 \\
-%    101  &        5 &     -3 \\
-%    110  &        6 &     -2 \\
-%    111  &        7 &     -1 \\ \hline
+\begin{tabular}{p{2.5cm}|p{2.5cm}|p{2.5cm}} \toprule    
+     bits & unsigned & signed \\ \midrule
+     000  &        0 &      0 \\
+     001  &        1 &      1 \\
+     010  &        2 &      2 \\
+     011  &        3 &      3 \\
+     100  &        4 &     -4 \\
+     101  &        5 &     -3 \\
+     110  &        6 &     -2 \\
+     111  &        7 &     -1 \\ \bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{Integer Data Types}
+\begin{tabular}{p{1.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}} \toprule
+bits &          &               minval &               maxval \\ \midrule
+8    &   signed &                 -128 &                  127 \\
+8    & unsigned &                    0 &                  255 \\
+16   &   signed &               -32768 &                32767 \\
+16   & unsigned &                    0 &                65535 \\
+32   &   signed &          -2147483648 &           2147483647 \\
+32   & unsigned &                    0 &           4294967295 \\
+64   &   signed & -9223372036854775808 &  9223372036854775807 \\
+64   & unsigned & 0                    & 18446744073709551615 \\ \bottomrule
 \end{tabular}
 \end{frame}
 
@@ -81,21 +80,31 @@
     7 & 0111 & & F & 1111 \\    \bottomrule
 \end{tabular}
 \end{frame}
-
-\begin{frame}{Hexadecimal System}
-    \begin{itemize}
-        \item Hex: Base-16 system
-        \item Compare with binary and decimal
-        \item Easier readability of binary data
-        \item Converting between hex, binary, and decimal
-    \end{itemize}
-    \end{frame}
     
 \begin{frame}{Encoding a byte in Hexadecimal}
 \begin{itemize}
     \item D9 = 10011001
     \item AF = 10101111
     \item 8C = 10001100
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Converting Between Binary and Decimal}
+\begin{tabular}{c|c|c|c|c|c|c|c}
+    $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ \\
+    $128$ & $64$  & $32$  & $16$  & $8$   & $4$   & $2$   & $1$   \\
+\end{tabular}
+
+\begin{itemize}
+    \item Method 1: sum powers of 2
+    \item $10010010 = 128 + 16 + 2 = 146$
+    \item Method 2: start from left
+    \begin{itemize}
+        \item Start with 1
+        \item For each digit, multiply by 2
+        \item If the digit is 1, add 1
+        \item Example: $(((((1 * 2) * 2) * 2) + 1) * 2 * 2 * 2 + 1) * 2 = 146$
+    \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -109,15 +118,42 @@
     \item Example: 'a' = 01100001 = 97
 \end{itemize}
 \end{frame}
-    
 
+\begin{frame}{Unicode UTF-8 Encoding}
+\begin{itemize}
+    \item Unicode is a standard for representing text of all languages
+    \item Originally fit into 16 bits
+    \item Now requires 19 bits because of emoji
+    \item UTF-8 is a variable length encoding
+    \item Useful when most of the text is English
+\end{itemize}
+\begin{tabular}{c|c|c|c} \toprule
+1st byte & 2nd byte & 3rd byte & 4th byte & 19-bit value          \\ \midrule
+0xxxxxxx &          &          &          & 000000000000000xxxxxx \\
+110yyyyy & 10xxxxxx &          &          & 0000000000yyyyyxxxxxx \\
+1110zzzz & 10yyzzzz & 10yyyyyy & 10xxxxxx & 00000zzzzyyyyyyxxxxxx \\
+11110uuu & 10uuzzzz & 10yyyyyy & 10xxxxxx & uuuuuzzzzyyyyyyxxxxxx \\ \bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Floating Point}
+\begin{itemize}
+    \item Integers can only represent whole numbers
+    \item Floating point can represent fractional numbers
+    \item IEEE-754
+    \item Example: 'A' = 01000001 = 65
+    \item Example: 'B' = 01000010 = 66
+    \item Example: 'a' = 01100001 = 97
+\end{itemize}
+\end{frame}
+    
 \begin{frame}[fragile]{Bitwise Operations}
 \begin{itemize}
     \item Logic gates on computers are built out of transistors
     \item Circuits are built to yield desired operations (add, subtract, multiply, divide)
 \end{itemize}
 \begin{tabular}{c|c|c|c|c|c}    \toprule
-    A & B & NOT A & A AND B & A OR B & A XOR B \\ 
+    A & B & NOT A & A AND B & A OR B & A XOR B \\ \midrule
     0 & 0 &     1 &       0 &      0 &       0 \\ 
     0 & 1 &     1 &       0 &      1 &       1 \\ 
     1 & 0 &     0 &       0 &      1 &       1 \\ 

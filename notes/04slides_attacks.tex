@@ -1,27 +1,162 @@
-Attacks
+\input{preamble.tex}
 
-Plaintext attack
-    if a message is known, reconstruct the key and use it to break other messages
+\title[]{Cryptographic Attacks}
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
 
-DNS attack
-    redirect lookup of domain names to a malicious server that will give a fake server
-    If this leads to poisoning the certificate server, then communication to all servers will be intercepted
+\begin{withoutheadline}
 
-Breaking RSA through a plaintext Attack
-    Beyond the scope of this workshop, but RSA can be broken, so we only use random numbers
+\begin{frame}{Cryptographic Attacks}
+\begin{itemize}
+    \item Cryptography is different than other areas of computer science
+    \item Bugs are not merely passive
+    \item People actively try to find bugs and exploit them to achieve results
+\end{itemize}
+\end{frame}
 
-Breaking RSA using Schorr's algorithm and a quantum computer
-    The NSA has ordered all ISPs to start transitioning to a new cryptosystem.
-    RSA will not be safe when there are quantum computers with 400 qbits capable of staying up long enough.
-    This has not been done yet, but when it is done, suddenly https:// would no longer be safe.
+\begin{frame}{Cryptographic Attacks}
+    \item Evil maid
+    \item Plaintext
+    \item 
+    \item
+    \item
+    \item
+    \item
+\end{frame}
 
-VPNs
-    NORDVPN, Surfshark, ExpressVPN, ProtonVPN, PIA 
-    A VPN encrypts all traffic typically using AES-256.
-    This means your ISP cannot evesdrop and know what you are doing.
-    Of course, the VPN could be forced to eavesdrop by a government, so the location and policies of the VPN provider
-    are very important.
+\begin{frame}{Plaintext attack}
+    \item Given knowledge of a message contents
+    \item Reconstruct the key and use it to break other messages
+    \item Example:
+    \begin{itemize}
+        \item message: 00 00 00 00 65 66 67 68
+        \item XOR encryption, key 4B
+        \item Compute the message
+        \item Can you determine the key from the encrypted message?
+    \end{itemize}
+\end{frame}
 
-    There have been hugely successful attacks on VPNs, so they are not foolproof
+\begin{frame}{Chosen Plaintext attack}
+    \item Given knowledge of a cryptosystem
+    \item Get the user to send a special constructed message
+    \item Example for XOR: get the user to send a zero in a known location
+\end{frame}
+
+\begin{frame}{RSA Plaintext attack}
+\begin{itemize}
+    \item More complicated than the previous
+    \item RSA can be broken by a plaintext attack
+    \item RSA is also computationally expensive
+    \item Therefore: we only send random numbers through RSA
+    \item Use the Random numbers to construct a joint key (Diffie-Hellman)
+    \item Use AES-256 to encrypt the actual message
+\end{itemize}
+\end{frame}
+
+\begin{frame}{DNS attack}
+\begin{itemize}
+    \item Redirect lookup of domain names
+    \item Build a malicious server that will mimick the real one
+    \item Direct the computer to a fake certificate Authority
+    \item All access to named web servers can then be faked
+\end{itemize}
+\end{frame}
+
+\begin{frame}{VPN}
+\begin{itemize}
+    \item A VPN uses encryption (typically AES-256)
+    \item Stops local ISP from spying on your activity
+    \item even if you use https, they can see which IP addresses you contact
+    \item Safer, particularly if you don't trust the network (hotels, foreign countries)
+    \item VPNs: NORDVPN, Surfshark, ExpressVPN, ProtonVPN, PIA 
+    \item The VPN insiders themselves can spy on you
+    \item They can be forced to give the information to a government
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Tunnelvision Attack}
+\begin{itemize}
+    \item Recent vulnerability showed it is possible to fool systems (Android)
+    \item They bypass the VPN, making it useless
+    \item \url{https://www.wired.com/story/tunnelvision-vpn-attack/}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Chosen Plaintext attack}
+    \item Given knowledge of a cryptosystem
+    \item Get the user to send a special constructed message
+    \item Example for XOR: get the user to send a zero in a known location
+\end{frame}
+
+\begin{frame}{Side-Channel Attacks}
+\begin{itemize}
+    \item Encryption uses computing resources
+    \item Computers leak information in various ways
+    \item Side-channel attacks are used to exploit these
+    \item Power
+    \item Radio-Frequency Radiation
+    \item Cache
+    \item Timing
+    \item Differential-Fault
+    \item Data remanence
+\end{itemize}
+\url{https://en.wikipedia.org/wiki/Side-channel_attack}
+\end{frame}
+
+\begin{frame}{Social Engineering Attacks}
+\begin{itemize}
+    \item Phishing
+    \item Ransomeware
+    \item Social Engineering attacks rely on tricking users into initiating the attack
+    \begin{itemize}
+        \item Clicking on a link
+        \item Running a program
+        \item Taking an action based on a fraudulent email
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Repudiation}
+\begin{itemize}
+    \item A user does something (buys merchandise, sends a bitcoin)
+    \item Claims it did not happen
+    \item A secure cryptosystem should be able to prevent a dishonest user from claiming it never happened
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Replay Attack}
+\begin{itemize}
+    \item A conversation is encrypted and the attacker cannot modify it
+    \item Still possible to cause trouble
+    \item Example: I order a pizza online
+    \item Replay attack: eavesdropper records my encrypted message, and sends it 1 million times
+    \item 1 million pizzas are billed to me (and appear at my door!)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Dictionary Attack}
+\begin{itemize}
+        \item Password files today are usually hashed for security
+    \item This prevents someone with access from stealing all passwords
+    \item If an attack can gain access to the password file, they can try to crack by
+    \begin{itemize}
+        \item Start with a dictionary of all common password choices
+        \item words, common stupid passwords
+        \item Hash all words in the dictionary
+        \item Compare to the passwords in the file
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+%Breaking RSA using Schorr's algorithm and a quantum computer
+%    The NSA has ordered all ISPs to start transitioning to a new cryptosystem.
+%    RSA will not be safe when there are quantum computers with 400 qbits capable of staying up long enough.
+%    This has not been done yet, but when it is done, suddenly https:// would no longer be safe.
 
 
+
+
+\end{withoutheadline}
+\end{document} 
