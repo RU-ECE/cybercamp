@@ -17,16 +17,20 @@
 \end{frame}
 
 \begin{frame}{Cryptographic Attacks}
-    \item Evil maid
+\begin{itemize}
     \item Plaintext
-    \item 
-    \item
-    \item
-    \item
-    \item
+    \item Chosen Plaintext
+    \item DNS
+    \item Evil maid
+    \item Man-in-the-Middle
+    \item Side-Channel
+    \item Social Engineering
+    \item Key Loggers
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Plaintext attack}
+\begin{itemize}
     \item Given knowledge of a message contents
     \item Reconstruct the key and use it to break other messages
     \item Example:
@@ -36,15 +40,18 @@
         \item Compute the message
         \item Can you determine the key from the encrypted message?
     \end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Chosen Plaintext attack}
+\begin{itemize}
     \item Given knowledge of a cryptosystem
     \item Get the user to send a special constructed message
     \item Example for XOR: get the user to send a zero in a known location
+\end{itemize}
 \end{frame}
 
-\begin{frame}{RSA Plaintext attack}
+\begin{frame}{RSA Plaintext Attack}
 \begin{itemize}
     \item More complicated than the previous
     \item RSA can be broken by a plaintext attack
@@ -55,7 +62,7 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{DNS attack}
+\begin{frame}{DNS Attack}
 \begin{itemize}
     \item Redirect lookup of domain names
     \item Build a malicious server that will mimick the real one
@@ -85,9 +92,47 @@
 \end{frame}
 
 \begin{frame}{Chosen Plaintext attack}
+\begin{itemize}
     \item Given knowledge of a cryptosystem
     \item Get the user to send a special constructed message
     \item Example for XOR: get the user to send a zero in a known location
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Man-In-The-Middle Attacks}
+\begin{itemize}
+    \item Attacker controls some part of the network path
+    \item Routes packets to a fake server
+    \item An unsuspecting user is asked to type in userid and password and gives it to the fake server
+    \item Attacker then uses the userid and password on the real server
+    \item \url{https://en.wikipedia.org/wiki/Man-in-the-middle_attack}
+    \item Defenses: Digital authentication and 2nd factor authentication
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Evil Maid Attacks}
+\begin{itemize}
+    \item Coined in 2009 by Joanna Rutkowska
+    \item \url{https://en.wikipedia.org/wiki/Evil_maid_attack}
+    \item With physical access to a computer, it is extremely difficult to secure it
+    \item Plug in a USB dongle
+    \item Poison the little CPU used to boot the computer
+    \item Write to the hard drive (helps to encrypt it)
+    \item In general, security requires locking up machines
+    \item DOD sometimes epoxies USB ports which are vulnerable
+    \item CIA tests: \url{https://www.wired.com/2011/06/the-dropped-drive-hack/}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example of Sophisticated USB Injection Attack}
+\begin{itemize}
+    \item STUXNet is believed to have been jointly developed by USA and Israel
+    \item Used to infect Iranian nuclear facility at Natanz
+    \item Believed to have been installed using a USB memory stick
+    \item subtly altered programming of PLAs and caused many centrifuges to speed up and self-destruct
+    \item Believed to have slowed down the nuclear program by about a year
+    \item \url{https://en.wikipedia.org/wiki/Stuxnet}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Side-Channel Attacks}
@@ -115,6 +160,9 @@
         \item Running a program
         \item Taking an action based on a fraudulent email
     \end{itemize}
+    \item Difficult to defend against because the only way to stop employees is to deny them rights
+    \item Then, how do they do their jobs?
+    \item Example: Ransomware encrypts each file and rewrites it
 \end{itemize}
 \end{frame}
 
@@ -146,6 +194,20 @@
         \item words, common stupid passwords
         \item Hash all words in the dictionary
         \item Compare to the passwords in the file
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Key Loggers}
+\begin{itemize}
+    \item If an attacker can gain access to the computer and install software
+    \item Record keystrokes and discover passwords entered by the user
+    \item Defense: 2nd factor authentication
+    \begin{itemize}
+        \item Hardware device like yubikey
+        \item Software on cell phone that kicks out random numbers
+        \item This means attackers have to physically steal the 2nd factor key
+        \item text messages are NOT good enough: attackers just clone the phone
     \end{itemize}
 \end{itemize}
 \end{frame}
