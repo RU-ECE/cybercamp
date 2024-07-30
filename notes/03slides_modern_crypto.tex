@@ -6,7 +6,7 @@
 \titlepage
 \end{frame}
 
-%\begin{withoutheadline}
+\begin{withoutheadline}
 
 \begin{frame}{Modern Cryptography}
 \begin{itemize}
@@ -102,21 +102,6 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Plaintext Attack History: Enigma}
-\begin{itemize}
-    \item In World War II, both Germany and Japan relied on electromechanical machines to encrypt messages
-    \item Germany: The Enigma machine
-    \item Japan: Type B (US called it Purple)
-    \item UK attacked Enigma messages by using
-    \begin{itemize} 
-        \item weather messages which were rigidly formatted
-        \item messages enciphered both in enigma and another breakable method
-    \end{itemize}
-\end{itemize}
-\includegraphics[scale=0.25]{wikipedia_enigmamachine.jpg}
-\includegraphics[scale=0.5]{wikipedia_purplemachine.jpg}
-\end{frame}
-
 \begin{frame}{Current Symmetric Cryptography: AES-256}
 \begin{itemize}
     \item 256-bit key
@@ -130,7 +115,7 @@
 
 \begin{frame}{Increasing Difficulty: CBC}
     \begin{itemize}
-        \item Even with a complicated function, a key is not safe if it is reused a lot
+        \item Even with AES-256, a key is not safe if it is reused a lot
         \item Methods of increasing difficulty: Cypher Block Chaining (CBC)
         \item Each block is used to modify the key so it changes 
         \item Even CBC is subject to plaintext attack
@@ -154,7 +139,7 @@
     \item Hanging in, but speed has not been increasing at the same related
     \item Still, if the problem can be split into parallel chunks...
 \end{itemize}
-\includegraphics[width=10cm]{mooreslaw.pdf}
+\includegraphics[width=10cm]{Moores_law.png}
 \end{frame}
 
 \begin{frame}{Asymmetric Cryptography}
@@ -324,6 +309,28 @@ Attack at dawn $\rightarrow$ 1      \\
         \item private key = $( n, d )$
         \item Security of RSA depends on: factoring $n$ is slow
     \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Euclid Greatest Common Denominator (GCD)}
+    \begin{itemize}
+        \item Compute the greatest common denominator in log time
+        \item Designed for the original silicon-based computer -- sand!
+    \end{itemize}
+\begin{lstlisting}[language=c++,mathescape=true]
+gcd(a, b)
+  if b == 0 then
+    return a
+  else
+    return gcd(b, a % b)
+  end
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{GCD example}
+\begin{itemize}
+    \item $gcd(12, 18) = gcd(18, 12) = gcd(12, 6) = gcd(6, 0) = 6$
+    \item $gcd(3025, 1025) = ?$
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Extended Euclid}
@@ -681,5 +688,5 @@ contract Bank {
     \end{itemize}
 \end{frame}
 
-%\end{withoutheadline}
+\end{withoutheadline}
 \end{document} 

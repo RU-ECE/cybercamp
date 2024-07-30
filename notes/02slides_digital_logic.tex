@@ -119,7 +119,7 @@ bits &          &               minval &               maxval \\ \midrule
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Unicode UTF-8 Encoding}
+\begin{frame}[fragile]{Unicode UTF-8 Encoding}
 \begin{itemize}
     \item Unicode is a standard for representing text of all languages
     \item Originally fit into 16 bits
@@ -127,7 +127,7 @@ bits &          &               minval &               maxval \\ \midrule
     \item UTF-8 is a variable length encoding
     \item Useful when most of the text is English
 \end{itemize}
-\begin{tabular}{c|c|c|c} \toprule
+\begin{tabular}{c|c|c|c|c} \toprule
 1st byte & 2nd byte & 3rd byte & 4th byte & 19-bit value          \\ \midrule
 0xxxxxxx &          &          &          & 000000000000000xxxxxx \\
 110yyyyy & 10xxxxxx &          &          & 0000000000yyyyyxxxxxx \\
@@ -135,16 +135,77 @@ bits &          &               minval &               maxval \\ \midrule
 11110uuu & 10uuzzzz & 10yyyyyy & 10xxxxxx & uuuuuzzzzyyyyyyxxxxxx \\ \bottomrule
 \end{tabular}
 \end{frame}
+%https://symbl.cc/en/unicode-table/
 
-\begin{frame}{Floating Point}
+\begin{frame}[fragile]{Fixed Point Fractions}
+\begin{tabular}{c|c|c|c|c|c|c}
+$2^3$ & $2^2$ & $2^1$ & $2^0$ & . & $2^{-1}$ & $2^{-2}$ \\       
+\end{tabular}
+
 \begin{itemize}
-    \item Integers can only represent whole numbers
-    \item Floating point can represent fractional numbers
+    \item Fractions in binary are represented as negtive powers
+    \item $\frac{1}{2}$, $\frac{1}{4}$, $\frac{1}{8}$
+    \item Examples
+\end{itemize}     
+\begin{tabular}{c|c}
+$101.1$    & $= 4 + 1 + \frac{1}{2} = 5.5$ \\
+$1.01$     & $= 1 + \frac{1}{4} = 1.25$    \\
+$110.11$   & $= 4 + 2 + \frac{1}{2} + \frac{1}{4}$ \\
+$1001.001$ & $= 8 + 1 + \frac{1}{8}$ \\       
+\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{Floating Point}
+\begin{itemize}
+    \item Fixed point represents fractions, but only a single size
+    \item Floating point can represent values wildly different values
     \item IEEE-754
-    \item Example: 'A' = 01000001 = 65
-    \item Example: 'B' = 01000010 = 66
-    \item Example: 'a' = 01100001 = 97
 \end{itemize}
+\begin{tabular}{c|c}
+Single precision & 32 bits \\
+Double precision & 64 bits \\
+Quad Precision   & 128 bits (not yet in hardware) \\
+Half Precision   & 16 bits \\
+fp8              & 8 bits  \\
+\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{float (32-bit) Representation}
+\begin{tabular}{p{2cm}|p{10cm}|p{2cm}}
+value           &                             bits & hex      \\
+$1.0$           & 00011111100000000000000000000000 & 3f800000 \\
+$2.0$           & 01000000000000000000000000000000 & 40000000 \\
+$1.5$           & 00011111110000000000000000000000 & 3fc00000 \\
+$0.1$           & 00111101110011001100110011001101 & 3dcccccd \\
+$1234567.8$     & 01001001100101101011010000111110 & 4996b43e \\
+$1.2345678e+10$ & 01010000001101111111011100000110 & 5037f706 \\
+$6.023e+23$     & 01100110111111110001010101111111 & 66ff157f \\
+$6.674e-11$     & 00101110100100101100001101001000 & 2e92c348 \\
+$-1234567.8$    & 11001001100101101011010000111110 & c996b43e \\
+$1.234e-30$     & 00001101110010000011101001011011 & 0dc83a5b \\
+$NaN$           & 01111111110000000000000000000000 & 7fc00000 \\
+$Infinity$      & 01111111100000000000000000000000 & 7f800000 \\
+$-Infinity$     & 11111111100000000000000000000000 & ff800000 \\
+\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{double (64-bit) Representation}
+\begin{tabular}{c|c|c}
+value           & seeeeeee eeee                                                      bits &              hex \\
+$1.0$           & 00111111 11110000 00000000 00000000 00000000 00000000 00000000 00000000 & 3FF0000000000000 \\
+$2.0$           & 01000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 & 4000000000000000 \\
+$1.5$           & 00111111 11111000 00000000 00000000 00000000 00000000 00000000 00000000 & 3FF8000000000000 \\
+$0.1$           & 00111111 10111001 10011001 10011001 10011001 10011001 10011001 10011010 & 3FB999999999999A \\
+$1234567.8$     & 01000001 00110010 11010110 10000111 11001100 11001100 11001100 11001101 & 4132D687CCCCCCCD \\
+$1.2345678e+10$ & 01000010 00000110 11111110 11100000 11000101 10000000 00000000 00000000 & 4206FEE0C5800000 \\
+$6.023e+23$     & 01000100 11011111 11100010 10101111 11100110 00101111 01110101 01101011 & 44DFE2AFE62F756B \\
+$6.674e-11$     & 00111101 11010010 01011000 01101000 11110100 11011110 10101110 00010110 & 3DD25868F4DEAE16 \\
+$-1234567.8$    & 11000001 00110010 11010110 10000111 11001100 11001100 11001100 11001101 & C132D687CCCCCCCD \\
+$1.234e-30$     & 00111001 10111001 00000111 01001011 01011000 11000111 11001010 11001010 & 39B9074B58C7CACA \\    
+$NaN$           & 01111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 & 7FFFFFFFFFFFFFFF \\
+$Infinity$      & 01111111 11110000 00000000 00000000 00000000 00000000 00000000 00000000 & 7FF0000000000000 \\
+$-Infinity$     & 01111111 11110000 00000000 00000000 00000000 00000000 00000000 00000000 & FFF0000000000000 \\
+\end{tabular}
 \end{frame}
     
 \begin{frame}[fragile]{Bitwise Operations}
@@ -164,7 +225,10 @@ bits &          &               minval &               maxval \\ \midrule
 
 \begin{frame}{Computer Bit Operations}
 \begin{itemize}
-    \item Bitwise operations
+    \item Logical Shift left
+    \item Logical Shift right
+    \item Rotate left
+    \item Rotate right
 \end{itemize}
 \end{frame}
 
