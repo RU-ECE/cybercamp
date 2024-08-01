@@ -6,7 +6,7 @@
 \titlepage
 \end{frame}
 
-%\begin{withoutheadline}
+\begin{withoutheadline}
 
 \begin{frame}{Modern Cryptography}
 \begin{itemize}
@@ -21,9 +21,10 @@
     \item Only a one-time pad is truly secure
     \begin{itemize}
         \item A key that is truly random, when XORed with a message, is perfectly secure
+        \item Each bit is random
         \item Any cryptosystem that uses a key repeatedly can eventually be broken
         \item Using a one-time pad creates a second problem
-        \item How to generate and distribute random numbers in vast numbers
+        \item How to generate and distribute random numbers in vast numbers?
     \end{itemize}
     \item Security is never based on secrecy of the method of encryption
     \item The only secret is the key itself
@@ -45,6 +46,7 @@
 \begin{itemize}
     \item People are notoriously bad at picking random sequences
     \item Predictable based on knowing the people
+    \item People can be tricked into giving others their passwords
     \item A big, complicated password is hard to remember
     \item Very often, recorded somewhere
 \end{itemize}    
@@ -100,21 +102,6 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Plaintext Attack History: Enigma}
-\begin{itemize}
-    \item In World War II, both Germany and Japan relied on electromechanical machines to encrypt messages
-    \item Germany: The Enigma machine
-    \item Japan: Type B (US called it Purple)
-    \item UK attacked Enigma messages by using
-    \begin{itemize} 
-        \item weather messages which were rigidly formatted
-        \item messages enciphered both in enigma and another breakable method
-    \end{itemize}
-\end{itemize}
-\includegraphics[scale=0.25]{wikipedia_enigmamachine.jpg}
-\includegraphics[scale=0.5]{wikipedia_purplemachine.jpg}
-\end{frame}
-
 \begin{frame}{Current Symmetric Cryptography: AES-256}
 \begin{itemize}
     \item 256-bit key
@@ -128,8 +115,9 @@
 
 \begin{frame}{Increasing Difficulty: CBC}
     \begin{itemize}
-        \item Even with a complicated function, a key is not safe if it is reused a lot
+        \item Even with AES-256, a key is not safe if it is reused a lot
         \item Methods of increasing difficulty: Cypher Block Chaining (CBC)
+        \item Each block is used to modify the key so it changes 
         \item Even CBC is subject to plaintext attack
     \end{itemize}
     \includegraphics[scale=0.25]{CBC.png}
@@ -151,13 +139,24 @@
     \item Hanging in, but speed has not been increasing at the same related
     \item Still, if the problem can be split into parallel chunks...
 \end{itemize}
-\includegraphics[width=10cm]{mooreslaw.pdf}
+\includegraphics[width=10cm]{Moores_law.png}
 \end{frame}
 
-
+\begin{frame}{Asymmetric Cryptography}
+    \begin{itemize}
+        \item Invented in 1970s \url{https://en.wikipedia.org/wiki/Public-key_cryptography}
+        \item Diffie-Hellman defined a key exchange
+        \item Rivest, Shamir, and Adleman defined RSA and implemented a working system
+        \item Relies on the fact that some operations are fast to do but slow to undo
+        \item Ironically, it is not proven that one-way functions even exist
+        \item Split the key into public and private
+        \item The public key can be used to encrypt a message
+        \item The private key is needed to decrypt the message
+    \end{itemize}
+\end{frame}
+    
 \begin{frame}{Asymmetric Cryptography}
 \begin{itemize}
-    \item 1969: proposed asymmetric cryptography
     \item Everyone knows the public keys, can be distributed
     \item Source of public keys must be trustworthy
     \item Generally slower than symmetric cryptography operations
@@ -218,17 +217,18 @@
         \item Sender encrypts using receiver's public key $E(n, k_{pub})$ and sends
         \item Receiver decrypts: $n = D(m, k_{priv})$ and send back to sender, proving identity
         \item in ssh key authentication, both sides do this. First we verify that the server really is who it says it is
+        \item Notice, this does not require sending a userid and password to the server
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Signature Validation Security}
-    \begin{itemize}
-        \item Over time, the security of digital signature fades
-        \item Computers get faster, and better algorithms start to threaten the hash function
-        \item My idea: retain a "secret" hash on file in a secure repository
-        \item If an attack in the future claims the message is not correct and offers an alternative
-        \item Prove by unlocking the original secret and rehashing using the secret
-    \end{itemize}
+\begin{itemize}
+    \item Over time, the security of digital signature fades
+    \item Computers get faster, and better algorithms start to threaten the hash function
+    \item My idea: retain a "secret" hash on file in a secure repository
+    \item If an attack in the future claims the message is not correct and offers an alternative
+    \item Prove by unlocking the original secret and rehashing using the secret
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Diffie-Hellman Key Exchange}
@@ -240,6 +240,7 @@
         \item Both parties compute a shared key
         \item Use a symmetric algorithm (AES-256) to encrypt messages
         \item Change keys regularly (ie every 30 minutes)
+        \item This is how https works
     \end{itemize}
 \end{frame}
 
@@ -308,6 +309,28 @@ Attack at dawn $\rightarrow$ 1      \\
         \item private key = $( n, d )$
         \item Security of RSA depends on: factoring $n$ is slow
     \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Euclid Greatest Common Denominator (GCD)}
+    \begin{itemize}
+        \item Compute the greatest common denominator in log time
+        \item Designed for the original silicon-based computer -- sand!
+    \end{itemize}
+\begin{lstlisting}[language=c++,mathescape=true]
+gcd(a, b)
+  if b == 0 then
+    return a
+  else
+    return gcd(b, a % b)
+  end
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{GCD example}
+\begin{itemize}
+    \item $gcd(12, 18) = gcd(18, 12) = gcd(12, 6) = gcd(6, 0) = 6$
+    \item $gcd(3025, 1025) = ?$
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Extended Euclid}
@@ -665,5 +688,5 @@ contract Bank {
     \end{itemize}
 \end{frame}
 
-%\end{withoutheadline}
+\end{withoutheadline}
 \end{document} 
