@@ -19,6 +19,8 @@ typical. There are huge benefits to learning this older way of communicating
    ```bash
    sudo adduser yourid
    sudo passwd yourid  # choose something secure!
+   sudo adduser guest  # let's create a guest account. You can pick a different id
+   sudo passwd guest   # pick a password, write it down so you can give it to your lab partner
    # change the password for the original user eventually for security.
    # we won't do it now so we can get in in case you forget your password
    ```
@@ -54,14 +56,29 @@ typical. There are huge benefits to learning this older way of communicating
    ```bash
    python hello.py
    ```
-2. Find out some information about the network
+1. Find out some information about the network
    ```bash
    hostname
    hostname -I
    #find out a partner's ip address, and see if you can reach them
    ping 155.246.___.____  # your partner's ip (it might not be 155.246)
    ```
-
+1. Log into your neighbor's computer (if possible)
+   Note: Stevens may actively prevent this on their network because they are worried about attacks
+   What we need is a private wifi so we can "play" inside it.
+   ```bash
+   ssh guest@your-neighbor-ip   # this will ask you for the password. Then you will be on remotely!
+   scp myfile guest@your-neighbor-ip:  # this will copy a file from your home directory to the remote one
+   ```
+1. Create a public/private keypair
+   ```bash
+   ssh-keygen -t rsa  # you will need to press enter 3 times...
+   ```
+   Now, in folder ```/home/yourid/.ssh``` you have files
+   ```id_rsa``` and ```id_rsa.pub```
+1. For security, consider whether you want to leave ssh remote login working after you leave the class.
+   Remember that on any network, someone can try to ssh to your computer. It's safer to disable if you don't want this.
+   If you are on your private network at home with a router, you're pretty safe.
 ## References
 
 [Curated list of Linux Commands](github.com/LinuxCrashCourse/LinuxCrashCourse)
