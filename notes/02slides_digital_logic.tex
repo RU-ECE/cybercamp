@@ -197,8 +197,8 @@ fp8              & 8 bits  (GPUs)  \\ \bottomrule
 \setlength{\tabcolsep}{2pt}
 \scriptsize
 \ttfamily
-\begin{tabular}{p{2cm}|p{10cm}|p{2cm}}
-value         & seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm &      hex \\
+\begin{tabular}{p{2cm}|p{10cm}|p{2cm}} \toprule
+value         & seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm &      hex \\ \midrule
 1.0           & 00011111100000000000000000000000 & 3f800000 \\
 2.0           & 01000000000000000000000000000000 & 40000000 \\
 1.5           & 00011111110000000000000000000000 & 3fc00000 \\
@@ -211,7 +211,7 @@ value         & seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm &      hex \\
 1.234e-30     & 00001101110010000011101001011011 & 0dc83a5b \\
 NaN           & 01111111110000000000000000000000 & 7fc00000 \\
 Infinity      & 01111111100000000000000000000000 & 7f800000 \\
--Infinity     & 11111111100000000000000000000000 & ff800000 \\
+-Infinity     & 11111111100000000000000000000000 & ff800000 \\ \bottomrule
 \end{tabular}
 \end{frame}
 
