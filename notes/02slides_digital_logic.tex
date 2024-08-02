@@ -40,7 +40,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Representing 3 bit Integers}
-\begin{tabular}{p{2.5cm}|p{2.5cm}|p{2.5cm}} \toprule    
+\begin{tabular}{p{2cm}|p{2.5cm}|p{2.5cm}} \toprule    
      bits & unsigned & signed \\ \midrule
      000  &        0 &      0 \\
      001  &        1 &      1 \\
@@ -67,6 +67,23 @@ bits &          &               minval &               maxval \\ \midrule
 \end{tabular}
 \end{frame}
 
+\begin{frame}[fragile]{Twos Complement Arithmetic}
+\begin{itemize}
+    \item Consider just 8 bit number for simplicity
+    \item First bit is sign 0 = positive, 1 = negative
+    \item To negate a number
+    \begin{itemize}
+        \item invert all bits
+        \item add 1
+        \item the resulting number is the negative of the original
+        \item Example: $   5 = 00000101 \to 11111010 \to 11111011 = -5$
+        \item Example: $  17 = 00010001 \to 11101110 \to 11101111 = -17$
+        \item Example: $ -11 = 11110101 \to 00001010 \to 00001011 = 11$
+        \item Example: $-128 = 10000000 \to 01111111 \to 00000000 = -128$
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]{Base 16: Hexadecimal}
 \begin{tabular}{c|c|c|c|c} \toprule
     Hex & bits & --- & Hex & bits  \\ \midrule 
@@ -90,6 +107,7 @@ bits &          &               minval &               maxval \\ \midrule
 \end{frame}
 
 \begin{frame}{Converting Between Binary and Decimal}
+\ttfamily
 \begin{tabular}{c|c|c|c|c|c|c|c}
     $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ \\
     $128$ & $64$  & $32$  & $16$  & $8$   & $4$   & $2$   & $1$   \\
@@ -127,6 +145,9 @@ bits &          &               minval &               maxval \\ \midrule
     \item UTF-8 is a variable length encoding
     \item Useful when most of the text is English
 \end{itemize}
+\setlength{\tabcolsep}{2pt}
+\scriptsize
+\ttfamily
 \begin{tabular}{c|c|c|c|c} \toprule
 1st byte & 2nd byte & 3rd byte & 4th byte & 19-bit value          \\ \midrule
 0xxxxxxx &          &          &          & 000000000000000xxxxxx \\
@@ -147,7 +168,9 @@ $2^3$ & $2^2$ & $2^1$ & $2^0$ & . & $2^{-1}$ & $2^{-2}$ \\
     \item $\frac{1}{2}$, $\frac{1}{4}$, $\frac{1}{8}$
     \item Examples
 \end{itemize}     
-\begin{tabular}{c|c}
+\setlength{\tabcolsep}{2pt}
+\ttfamily
+\begin{tabular}{p{2cm}p{10cm}}
 $101.1$    & $= 4 + 1 + \frac{1}{2} = 5.5$ \\
 $1.01$     & $= 1 + \frac{1}{4} = 1.25$    \\
 $110.11$   & $= 4 + 2 + \frac{1}{2} + \frac{1}{4}$ \\
@@ -161,50 +184,56 @@ $1001.001$ & $= 8 + 1 + \frac{1}{8}$ \\
     \item Floating point can represent values wildly different values
     \item IEEE-754
 \end{itemize}
-\begin{tabular}{c|c}
+\begin{tabular}{p{4cm}|p{5cm}} \toprule
 Single precision & 32 bits \\
 Double precision & 64 bits \\
 Quad Precision   & 128 bits (not yet in hardware) \\
-Half Precision   & 16 bits \\
-fp8              & 8 bits  \\
+Half Precision   & 16 bits  (GPUs) \\
+fp8              & 8 bits  (GPUs)  \\ \bottomrule
 \end{tabular}
 \end{frame}
 
 \begin{frame}[fragile]{float (32-bit) Representation}
+\setlength{\tabcolsep}{2pt}
+\scriptsize
+\ttfamily
 \begin{tabular}{p{2cm}|p{10cm}|p{2cm}}
-value           &                             bits & hex      \\
-$1.0$           & 00011111100000000000000000000000 & 3f800000 \\
-$2.0$           & 01000000000000000000000000000000 & 40000000 \\
-$1.5$           & 00011111110000000000000000000000 & 3fc00000 \\
-$0.1$           & 00111101110011001100110011001101 & 3dcccccd \\
-$1234567.8$     & 01001001100101101011010000111110 & 4996b43e \\
-$1.2345678e+10$ & 01010000001101111111011100000110 & 5037f706 \\
-$6.023e+23$     & 01100110111111110001010101111111 & 66ff157f \\
-$6.674e-11$     & 00101110100100101100001101001000 & 2e92c348 \\
-$-1234567.8$    & 11001001100101101011010000111110 & c996b43e \\
-$1.234e-30$     & 00001101110010000011101001011011 & 0dc83a5b \\
-$NaN$           & 01111111110000000000000000000000 & 7fc00000 \\
-$Infinity$      & 01111111100000000000000000000000 & 7f800000 \\
-$-Infinity$     & 11111111100000000000000000000000 & ff800000 \\
+value         & seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm &      hex \\
+1.0           & 00011111100000000000000000000000 & 3f800000 \\
+2.0           & 01000000000000000000000000000000 & 40000000 \\
+1.5           & 00011111110000000000000000000000 & 3fc00000 \\
+0.1           & 00111101110011001100110011001101 & 3dcccccd \\
+1234567.8     & 01001001100101101011010000111110 & 4996b43e \\
+1.2345678e+10 & 01010000001101111111011100000110 & 5037f706 \\
+6.023e+23     & 01100110111111110001010101111111 & 66ff157f \\
+6.674e-11     & 00101110100100101100001101001000 & 2e92c348 \\
+-1234567.8    & 11001001100101101011010000111110 & c996b43e \\
+1.234e-30     & 00001101110010000011101001011011 & 0dc83a5b \\
+NaN           & 01111111110000000000000000000000 & 7fc00000 \\
+Infinity      & 01111111100000000000000000000000 & 7f800000 \\
+-Infinity     & 11111111100000000000000000000000 & ff800000 \\
 \end{tabular}
 \end{frame}
 
 \begin{frame}[fragile]{double (64-bit) Representation}
-\begin{tabular}{c|c|c}
-value           & seeeeeee eeee                                                      bits &              hex \\
-$1.0$           & 00111111 11110000 00000000 00000000 00000000 00000000 00000000 00000000 & 3FF0000000000000 \\
-$2.0$           & 01000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 & 4000000000000000 \\
-$1.5$           & 00111111 11111000 00000000 00000000 00000000 00000000 00000000 00000000 & 3FF8000000000000 \\
-$0.1$           & 00111111 10111001 10011001 10011001 10011001 10011001 10011001 10011010 & 3FB999999999999A \\
-$1234567.8$     & 01000001 00110010 11010110 10000111 11001100 11001100 11001100 11001101 & 4132D687CCCCCCCD \\
-$1.2345678e+10$ & 01000010 00000110 11111110 11100000 11000101 10000000 00000000 00000000 & 4206FEE0C5800000 \\
-$6.023e+23$     & 01000100 11011111 11100010 10101111 11100110 00101111 01110101 01101011 & 44DFE2AFE62F756B \\
-$6.674e-11$     & 00111101 11010010 01011000 01101000 11110100 11011110 10101110 00010110 & 3DD25868F4DEAE16 \\
-$-1234567.8$    & 11000001 00110010 11010110 10000111 11001100 11001100 11001100 11001101 & C132D687CCCCCCCD \\
-$1.234e-30$     & 00111001 10111001 00000111 01001011 01011000 11000111 11001010 11001010 & 39B9074B58C7CACA \\    
-$NaN$           & 01111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 & 7FFFFFFFFFFFFFFF \\
-$Infinity$      & 01111111 11110000 00000000 00000000 00000000 00000000 00000000 00000000 & 7FF0000000000000 \\
-$-Infinity$     & 01111111 11110000 00000000 00000000 00000000 00000000 00000000 00000000 & FFF0000000000000 \\
+\setlength{\tabcolsep}{2pt}
+\scriptsize
+\ttfamily
+\begin{tabular}{p{2cm}|p{10cm}|p{2cm}} \toprule
+value         & seeeeeeeeeeemmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm &              hex \\ \midrule
+1.0           & 00111111111100000000000000000000 00000000000000000000000000000000 & 3FF0000000000000 \\
+2.0           & 01000000000000000000000000000000 00000000000000000000000000000000 & 4000000000000000 \\
+1.5           & 00111111111110000000000000000000 00000000000000000000000000000000 & 3FF8000000000000 \\
+0.1           & 00111111101110011001100110011001 10011001100110011001100110011010 & 3FB999999999999A \\
+1234567.8     & 01000001001100101101011010000111 11001100110011001100110011001101 & 4132D687CCCCCCCD \\
+1.2345678e+10 & 01000010000001101111111011100000 11000101100000000000000000000000 & 4206FEE0C5800000 \\
+6.023e+23     & 01000100110111111110001010101111 11100110001011110111010101101011 & 44DFE2AFE62F756B \\
+6.674e-11     & 00111101110100100101100001101000 11110100110111101010111000010110 & 3DD25868F4DEAE16 \\
+-1234567.8    & 11000001001100101101011010000111 11001100110011001100110011001101 & C132D687CCCCCCCD \\
+1.234e-30     & 00111001101110010000011101001011 01011000110001111100101011001010 & 39B9074B58C7CACA \\    
+NaN           & 01111111111111111111111111111111 11111111111111111111111111111111 & 7FFFFFFFFFFFFFFF \\
+Infinity      & 01111111111100000000000000000000 00000000000000000000000000000000 & 7FF0000000000000 \\
+-Infinity     & 01111111111100000000000000000000 00000000000000000000000000000000 & FFF0000000000000 \\ \bottomrule
 \end{tabular}
 \end{frame}
     
@@ -213,7 +242,7 @@ $-Infinity$     & 01111111 11110000 00000000 00000000 00000000 00000000 00000000
     \item Logic gates on computers are built out of transistors
     \item Circuits are built to yield desired operations (add, subtract, multiply, divide)
 \end{itemize}
-\begin{tabular}{c|c|c|c|c|c}    \toprule
+\begin{tabular}{p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}}    \toprule
     A & B & NOT A & A AND B & A OR B & A XOR B \\ \midrule
     0 & 0 &     1 &       0 &      0 &       0 \\ 
     0 & 1 &     1 &       0 &      1 &       1 \\ 
@@ -222,14 +251,24 @@ $-Infinity$     & 01111111 11110000 00000000 00000000 00000000 00000000 00000000
 \end{tabular}
 \end{frame}
 
-
-\begin{frame}{Computer Bit Operations}
-\begin{itemize}
-    \item Logical Shift left
-    \item Logical Shift right
-    \item Rotate left
-    \item Rotate right
-\end{itemize}
+\begin{frame}[fragile]{Computer Bit Operations}
+\begin{tabular}{p{4cm}|p{2cm}|p{3cm}|p{3cm}}            \toprule
+Operation              & C++ operator & Before & Result \\ \midrule
+Logical Shift Left     & <<           & abcdefgh & bcdefgh0 \\
+Logical Shift Right    & >>           & abcdefgh & 0abcdefg \\
+Arithmetic Shift Left  & <<  signed   & 1bcdefgh & 1cdefgh0 \\
+Arithmetic Shift Right & >>  signed   & 1bcdefgh & 11cdefgh \\
+Rotate Left            &              & abcdefgh & habcdefg \\
+Rotate Right           &              & abcdefgh & bcdefgha \\ \bottomrule
+\end{tabular}
+\begin{lstlisting}[language=c++,mathescape=true]
+uint8_t a = 0x5B, b = 0xC9;
+int8_t  c = -21, d = -15;
+a = a << 1; // 01011011 -> 10110110  0xB6
+b = b >> 1; // 11001001 -> 01100100  0x64
+c = c << 1; // 11101011 -> 11010110  -42
+d = d >> 1; // 11110001 -> 11111000  -8 
+\end{lstlisting}
 \end{frame}
 
 \end{withoutheadline}
