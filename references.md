@@ -15,3 +15,8 @@ I can't find the reference, but I read that everything was on paper. NO COMPUTER
 [Israel Strike Reactor](https://www.timesofisrael.com/three-minutes-over-syria-how-israel-destroyed-assads-nuclear-reactor/)
 
 [secure boot is compromised](https://it.slashdot.org/story/24/07/25/2028258/secure-boot-is-completely-broken-on-200-models-from-5-big-device-makers)
+
+[poisoning code](https://it.slashdot.org/story/24/08/03/1854257/how-chinese-attackers-breached-an-isp-to-poison-insecure-software-updates-with-malware)
+
+[Software Bill of Materials](https://www.cisa.gov/sbom)
+

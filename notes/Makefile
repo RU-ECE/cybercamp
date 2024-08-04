@@ -1,4 +1,4 @@
-all: 01slides_intro_cryptography.pdf 02slides_digital_logic.pdf 03slides_modern_crypto.pdf
+all: 01slides_intro_cryptography.pdf 02slides_digital_logic.pdf 03slides_modern_crypto.pdf 04slides_attacks.pdf
 
 01slides_intro_cryptography.pdf: 01slides_intro_cryptography.tex
 	pdflatex --shell-escape $<
@@ -7,6 +7,9 @@ all: 01slides_intro_cryptography.pdf 02slides_digital_logic.pdf 03slides_modern_
 	pdflatex --shell-escape $<
 
 03slides_modern_crypto.pdf: 03slides_modern_crypto.tex
+	pdflatex --shell-escape $<
+
+04slides_attacks.pdf: 04slides_attacks.tex
 	pdflatex --shell-escape $<
 
 clean:
