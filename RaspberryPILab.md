@@ -38,8 +38,9 @@ typical. There are huge benefits to learning this older way of communicating
    effort.
    ```bash
    #include <iostream>
+   
    int main() {
-     cout << "hello world\n";
+     std::cout << "hello world\n";
      return 0;
    }
    ```
