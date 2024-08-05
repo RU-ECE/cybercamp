@@ -18,9 +18,8 @@ typical. There are huge benefits to learning this older way of communicating
 1. Create an account for yourself
    ```bash
    sudo adduser yourid
-   sudo passwd yourid  # choose something secure!
+   # don't have to do this: sudo passwd yourid  # choose something secure!
    sudo adduser guest  # let's create a guest account. You can pick a different id
-   sudo passwd guest   # pick a password, write it down so you can give it to your lab partner
    # change the password for the original user eventually for security.
    # we won't do it now so we can get in in case you forget your password
    ```
@@ -28,9 +27,10 @@ typical. There are huge benefits to learning this older way of communicating
    - I do not have the instructions in advance, TAs please figure out how to do this on the stevens network and create the commands here
 1. Setup sshd so you can log into the Raspberry pi remotely
    - [https://raspberrypi-guide.github.io/networking/connecting-via-ssh]
+   - [https://www.seeedstudio.com/blog/2021/01/25/three-methods-to-configure-raspberry-pi-wifi/?srsltid=AfmBOorm4PyGroZ5v0CHdPMGaaM5biQtFXlIR8p_Lguru9khSvrHiXZx]
 1. Install packages we will be using in the course
    ```bash
-   sudo apt install gcc-toolchain python
+   sudo apt install g++ python
    ```
 1. Edit a test c++ file (call it hello.cpp)
    You can type this in, or write your own. You can also get in the browser on
