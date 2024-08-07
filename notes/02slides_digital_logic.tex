@@ -31,6 +31,7 @@
     \item n bits = $2^n$ combinations
     \item Data types
    \begin{itemize}
+       \item Data is stored in bits depends on context
        \item integers
        \item floating point
        \item ASCII characters
@@ -84,6 +85,19 @@ bits &          &               minval &               maxval \\ \midrule
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Overflow and Underflow}
+\begin{itemize}
+    \item When a result is too large, store only the low n bits
+    \item Example: 3 bits
+    \begin{itemize}
+        \item 3 + 3 = 6 (no overflow)
+        \item 4 + 4 = 8 (too big) = 0 (overflow)
+        \item 3 - 2 = 1 (no overflow)
+        \item 3 - 4 = -1 = 7 (underflow)
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]{Base 16: Hexadecimal}
 \begin{tabular}{c|c|c|c|c} \toprule
     Hex & bits & --- & Hex & bits  \\ \midrule 
@@ -100,7 +114,7 @@ bits &          &               minval &               maxval \\ \midrule
     
 \begin{frame}{Encoding a byte in Hexadecimal}
 \begin{itemize}
-    \item D9 = 10011001
+    \item D9 = 11011001
     \item AF = 10101111
     \item 8C = 10001100
 \end{itemize}
@@ -197,7 +211,7 @@ fp8              & 8 bits  (GPUs)  \\ \bottomrule
 \setlength{\tabcolsep}{2pt}
 \scriptsize
 \ttfamily
-\begin{tabular}{p{2cm}|p{10cm}|p{2cm}} \toprule
+\begin{tabular}{p{2cm}|p{5cm}|p{1.5cm}} \toprule
 value         & seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm &      hex \\ \midrule
 1.0           & 00011111100000000000000000000000 & 3f800000 \\
 2.0           & 01000000000000000000000000000000 & 40000000 \\
@@ -217,9 +231,9 @@ Infinity      & 01111111100000000000000000000000 & 7f800000 \\
 
 \begin{frame}[fragile]{double (64-bit) Representation}
 \setlength{\tabcolsep}{2pt}
-\scriptsize
+\tiny
 \ttfamily
-\begin{tabular}{p{2cm}|p{10cm}|p{2cm}} \toprule
+\begin{tabular}{p{1.6cm}|p{7.5cm}|p{1.75cm}} \toprule
 value         & seeeeeeeeeeemmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm &              hex \\ \midrule
 1.0           & 00111111111100000000000000000000 00000000000000000000000000000000 & 3FF0000000000000 \\
 2.0           & 01000000000000000000000000000000 00000000000000000000000000000000 & 4000000000000000 \\
@@ -242,7 +256,7 @@ Infinity      & 01111111111100000000000000000000 0000000000000000000000000000000
     \item Logic gates on computers are built out of transistors
     \item Circuits are built to yield desired operations (add, subtract, multiply, divide)
 \end{itemize}
-\begin{tabular}{p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}}    \toprule
+\begin{tabular}{p{0.75cm}|p{0.75cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}}    \toprule
     A & B & NOT A & A AND B & A OR B & A XOR B \\ \midrule
     0 & 0 &     1 &       0 &      0 &       0 \\ 
     0 & 1 &     1 &       0 &      1 &       1 \\ 
@@ -251,8 +265,62 @@ Infinity      & 01111111111100000000000000000000 0000000000000000000000000000000
 \end{tabular}
 \end{frame}
 
-\begin{frame}[fragile]{Computer Bit Operations}
-\begin{tabular}{p{4cm}|p{2cm}|p{3cm}|p{3cm}}            \toprule
+\begin{frame}[fragile]{Verilog Bitwise ops: Byte}
+\begin{lstlisting}[language=c++]
+module bitwise_operations_tb;
+initial begin
+  reg [7:0] byte_a = 8'b10101010;
+  reg [7:0] byte_b = 8'b01010101;
+  $display("Byte (8-bit) Operations:");
+  $display("A:   %b", byte_a);
+  $display("B:   %b", byte_b);
+  $display("A AND B: %b", byte_a & byte_b);
+  $display("A OR B:  %b", byte_a | byte_b);
+  $display("A XOR B: %b", byte_a ^ byte_b);
+  $display("NOT A:   %b", ~byte_a);
+end
+endmodule
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Verilog Data Types}
+\begin{lstlisting}[language=verilog]
+module datatypes_overview_tb;
+initial begin
+  reg [7:0] a = 8'hAA;
+  reg [15:0] b = 16'h5555;
+  shortint c = 16'hFFFF;
+  int d = 123;
+  longint e = 64'h1234567812345678;
+
+  $display("byte (8-bit):      %b", a);
+  $display("shortint (16-bit): %b", b);
+  $display("shortint (16-bit): %b", c);
+  $display("int (32-bit):      %d", d);
+  $display("longint (64-bit):  %h", e);
+  $finish;
+end
+endmodule
+\end{lstlisting}
+\end{frame}
+    
+% \begin{frame}[fragile]{Verilog Bit Operators on Byte}
+% \begin{lstlisting}[language=c++,mathescape=true]
+%     reg [31:0] int_a = 32'hAAAAAAAA;
+%     reg [31:0] int_b = 32'h55555555;
+
+%     $display("Integer (32-bit) Operations:");
+%     $display("A:   %b", int_a);
+%     $display("B:   %b", int_b);
+%     $display("A & B: %b", int_a & int_b);  // AND
+%     $display("A | B: %b", int_a | int_b);  // OR
+%     $display("A ^ B: %b", int_a ^ int_b);  // XOR
+%     $display("~A:    %b", ~int_a);         // NOT
+% \end{lstlisting}
+% \end{frame}
+    
+\begin{frame}[fragile]{Bit Shifting Operations}
+\begin{tabular}{p{4cm}|p{1.5cm}|p{2cm}|p{2cm}}            \toprule
 Operation              & C++ operator & Before & Result \\ \midrule
 Logical Shift Left     & <<           & abcdefgh & bcdefgh0 \\
 Logical Shift Right    & >>           & abcdefgh & 0abcdefg \\

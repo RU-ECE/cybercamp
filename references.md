@@ -1,5 +1,6 @@
 # 2024 Cybercamp References
-
+[my github for this class](https://github.com/RU-ECE/cybercamp)
+https://github.com/RU-ECE/cybercamp/blob/main/RaspberryPILab.md
 
 ## Great books on Cryptography
 [The Codebreakers](Kahn)
