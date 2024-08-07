@@ -51,3 +51,6 @@ How do you know that software you write is secure? Not only does it have to be s
 [Software Bill of Materials](https://www.cisa.gov/sbom)
 
 [Attack on Windows that can Reverse Update you?](https://tech.slashdot.org/story/24/08/07/1845258/your-windows-updates-can-all-be-downgraded-says-security-researcher)
+
+"Security Theater" is when something appears to be secure, but it's just for show. Financial companies sending you a text is mostly security theater, and we are paying the price for it.
+[Sim Hijacking](https://intel471.com/blog/a-briefing-on-sim-hijacking)
