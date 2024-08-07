@@ -2,6 +2,29 @@
 [my github for this class](https://github.com/RU-ECE/cybercamp)
 https://github.com/RU-ECE/cybercamp/blob/main/RaspberryPILab.md
 
+## My Class Notes from Other Courses
+
+For both C++ and Java, I wrote books (about 200 pages). Each one has short summaries of each topic designed for people who don't want to read a lot.
+
+I have a lot of innovations in my C++ course that I'm proud of, including:
+- A quiz to show you what you know and don't know
+- A pdf book of about 200 pages with summaries of many C++ topics in 1-2 pages each
+- Loads of coding examples in a sequence, numbered
+- A list of programs each containing a single bug with ranked difficulty. So 00 is easy if you know anything about the language, and 35 is a super-hard, subtle pointer bug
+
+[CPE553 (C++)](https://github.com/StevensDeptECE/CPE553-CPP)
+
+The Java course is not as sophisticated as the C++ but a lot of you teach Java and might find the course notes useful. Same short summary approach, it's designed to supplement your regular materials.
+[CPE552 (Java)](https://github.com/StevensDeptECE/CPE552-Java)
+
+My current course (Digital Logic Design). If you are interested you can join virtually. Learning how computers work will definitely make you a more sophisticated programmer. In this course I will be covering verilog, a digital design language. I have some innovations designed to allow grading a lot of homeworks with an enormous class (more than 200 students)
+[ECE-231 (Digital Logic Design)](https://github.com/RU-ECE/ECE231-DigitalLogicDesign)
+
+Processing is an amazing front end to Java and a graphical API. They also support python. This is the best way I know to teach programming, because it's fun, (graphics-centric), focuses on short programs with immediate intrinsic rewards, yet you can transition to full Java or C++ from there with almost no wasted time. Every statement you learn is Java. And I have a huge number of class examples and homeworks if anyone wants to contact me on that.
+
+[Workshop: 2d and 3d graphics in Processing](https://github.com/StevensDeptECE/workshops)
+
+
 ## Great books on Cryptography
 [The Codebreakers](Kahn)
 [Undersanding Cryptography, Parr](https://www.amazon.com/Understanding-Cryptography-Established-Asymmetric-Post-Quantum/dp/3662690063)
