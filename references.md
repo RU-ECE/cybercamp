@@ -50,3 +50,4 @@ How do you know that software you write is secure? Not only does it have to be s
 
 [Software Bill of Materials](https://www.cisa.gov/sbom)
 
+[Attack on Windows that can Reverse Update you?](https://tech.slashdot.org/story/24/08/07/1845258/your-windows-updates-can-all-be-downgraded-says-security-researcher)
