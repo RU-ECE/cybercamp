@@ -23,4 +23,5 @@ sudo nmap -sP 192.168.1.0/24    #search for hosts on the network
 ufw                 # A simple firewall for linux
 wget <url>          #download a file from a URL
 nmcli dev wifi list # show all wifi networks available
+tcpdump             #Capture and analyze network traffic
 ```
