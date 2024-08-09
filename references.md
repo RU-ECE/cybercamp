@@ -54,3 +54,10 @@ How do you know that software you write is secure? Not only does it have to be s
 
 "Security Theater" is when something appears to be secure, but it's just for show. Financial companies sending you a text is mostly security theater, and we are paying the price for it.
 [Sim Hijacking](https://intel471.com/blog/a-briefing-on-sim-hijacking)
+
+
+[Free Linux shell access](https://www.reddit.com/r/linuxquestions/comments/toyll1/is_there_a_linux_vm_that_i_can_access_for_free/)
+
+[Hacking scammers and tracked down](https://www.wired.com/story/usps-scam-text-smishing-triad/)
+
+[Youtube channel for Hacking Scammers](https://www.youtube.com/watch?v=VnpBBVm-xEA)
