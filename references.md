@@ -51,9 +51,14 @@ How do you know that software you write is secure? Not only does it have to be s
 "Security Theater" is when something appears to be secure, but it's just for show. Financial companies sending you a text is mostly security theater, and we are paying the price for it.
 [Sim Hijacking](https://intel471.com/blog/a-briefing-on-sim-hijacking)
 
+Manufacturers have been critically lax about security:
+[Attacks on Medical Hardware](https://www.aamc.org/news/exposing-vulnerabilities-how-hackers-could-target-your-medical-devices)
 
 [Free Linux shell access](https://www.reddit.com/r/linuxquestions/comments/toyll1/is_there_a_linux_vm_that_i_can_access_for_free/)
 
 [Hacking scammers](https://www.wired.com/story/usps-scam-text-smishing-triad/)
 
 [Youtube channel showing hacking scammers](https://www.youtube.com/watch?v=VnpBBVm-xEA)
+
+Using only a Wifi router in the house, a team at Stevens led by Yingying Chen wrote a paper about measuring the breathing rate of someone sleeping in bed -- not in the room with the router. Interesting, and kind of creepy.
+[Wifi Signal Strength Measuring Breathing Rate](https://ieeexplore.ieee.org/ielaam/6488907/8375923/8331078-aam.pdf?tag=1)
