@@ -35,20 +35,16 @@ Processing is an amazing front end to Java and a graphical API. They also suppor
 
 ## News Articles
 
-[Crowdstrike](https://www.kroll.com/en/insights/publications/cyber/addressing-crowdstrike-outage)
+A description of the recent outage due to the Windows update of Crowdstrike. [Crowdstrike](https://www.kroll.com/en/insights/publications/cyber/addressing-crowdstrike-outage)
 
-What this article does not discuss is how did Syria manage to build most of the reactor in secret for years without Israel finding out?
-I can't find the reference, but I read that everything was on paper. NO COMPUTERS! Inefficient, but far more secure.
 
-[Israel Strike Reactor](https://www.timesofisrael.com/three-minutes-over-syria-how-israel-destroyed-assads-nuclear-reactor/)
+This article describes Israel's attack on a nuclear reactor in Syria. What it does not discuss is how did Syria manage to build most of the reactor in secret for years without Israel finding out? This was considered a major intelligence failure, even though in the end they did destroy the reactor. I can't find the reference, but I read that everything was on paper. NO COMPUTERS! Inefficient, but far more secure. [Israel Strike Reactor](https://www.timesofisrael.com/three-minutes-over-syria-how-israel-destroyed-assads-nuclear-reactor/)
 
 [secure boot is compromised](https://it.slashdot.org/story/24/07/25/2028258/secure-boot-is-completely-broken-on-200-models-from-5-big-device-makers)
 
-[poisoning code](https://it.slashdot.org/story/24/08/03/1854257/how-chinese-attackers-breached-an-isp-to-poison-insecure-software-updates-with-malware)
+An article describing how hackers inject malware into code components: [poisoning code](https://it.slashdot.org/story/24/08/03/1854257/how-chinese-attackers-breached-an-isp-to-poison-insecure-software-updates-with-malware)
 
-How do you know that software you write is secure? Not only does it have to be safe, but every library or component you use has to be safe as well. Many attacks lately have been initiated by injecting malware into libraries which are used in hundreds or thousands of projects.
-
-[Software Bill of Materials](https://www.cisa.gov/sbom)
+How do you know that software you write is secure? Not only does it have to be safe, but every library or component you use has to be safe as well. Many attacks lately have been initiated by injecting malware into libraries which are used in hundreds or thousands of projects. [Software Bill of Materials](https://www.cisa.gov/sbom)
 
 [Attack on Windows that can Reverse Update you?](https://tech.slashdot.org/story/24/08/07/1845258/your-windows-updates-can-all-be-downgraded-says-security-researcher)
 
@@ -58,6 +54,6 @@ How do you know that software you write is secure? Not only does it have to be s
 
 [Free Linux shell access](https://www.reddit.com/r/linuxquestions/comments/toyll1/is_there_a_linux_vm_that_i_can_access_for_free/)
 
-[Hacking scammers and tracked down](https://www.wired.com/story/usps-scam-text-smishing-triad/)
+[Hacking scammers](https://www.wired.com/story/usps-scam-text-smishing-triad/)
 
-[Youtube channel for Hacking Scammers](https://www.youtube.com/watch?v=VnpBBVm-xEA)
+[Youtube channel showing hacking scammers](https://www.youtube.com/watch?v=VnpBBVm-xEA)
